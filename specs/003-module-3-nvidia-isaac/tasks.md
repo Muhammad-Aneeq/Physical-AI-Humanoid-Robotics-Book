@@ -17,7 +17,7 @@ description: "Task list for Module 3: The AI-Robot Brain (NVIDIA Isaac)"
 
 ## Path Conventions
 
-- **Educational Content**: `docs/modules/module-3/` (chapter markdown files)
+- **Educational Content**: `docs/module-3/` (chapter markdown files)
 - **Assets**: `docs/assets/module-3/` (code examples, USD scenes, diagrams, images)
 - **Documentation**: `specs/003-module-3-nvidia-isaac/` (research, data model, contracts)
 - **Tests**: `tests/content/` and `tests/code_examples/`
@@ -28,10 +28,10 @@ description: "Task list for Module 3: The AI-Robot Brain (NVIDIA Isaac)"
 
 **Purpose**: Initialize module structure and configuration
 
-- [ ] T001 Create module directory structure at docs/modules/module-3/
+- [ ] T001 Create module directory structure at docs/module-3/
 - [ ] T002 Create assets directory structure at docs/assets/module-3/ with subdirs (code/, usd_scenes/, diagrams/, images/)
 - [ ] T003 [P] Create _category_.json for Docusaurus sidebar configuration
-- [ ] T004 [P] Create module index file at docs/modules/module-3/index.md
+- [ ] T004 [P] Create module index file at docs/module-3/index.md
 - [ ] T005 [P] Create test directory structure for Module 3 validation
 
 ---
@@ -276,7 +276,7 @@ description: "Task list for Module 3: The AI-Robot Brain (NVIDIA Isaac)"
 
 ### Documentation & Index
 
-- [ ] T139 [P] Write comprehensive module index at docs/modules/module-3/index.md
+- [ ] T139 [P] Write comprehensive module index at docs/module-3/index.md
 - [ ] T140 [P] Add GPU requirements warning in index (RTX 2060+ minimum, performance expectations)
 - [ ] T141 [P] Add module navigation links to all chapter files
 - [ ] T142 [P] Add "How to use this module" with LJ1+LJ3 as critical path (can skip LJ2+LJ4 initially)

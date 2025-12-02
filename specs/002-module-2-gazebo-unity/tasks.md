@@ -17,7 +17,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 ## Path Conventions
 
-- **Educational Content**: `docs/modules/module-2/` (chapter markdown files)
+- **Educational Content**: `docs/module-2/` (chapter markdown files)
 - **Assets**: `docs/assets/module-2/` (code examples, diagrams, images)
 - **Documentation**: `specs/002-module-2-gazebo-unity/` (research, data model, contracts)
 - **Tests**: `tests/content/` and `tests/code_examples/`
@@ -28,10 +28,10 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 **Purpose**: Initialize module structure and configuration
 
-- [ ] T001 Create module directory structure at docs/modules/module-2/
+- [ ] T001 Create module directory structure at docs/module-2/
 - [ ] T002 Create assets directory structure at docs/assets/module-2/ with subdirs (code/, diagrams/, images/)
 - [ ] T003 [P] Create _category_.json for Docusaurus sidebar configuration
-- [ ] T004 [P] Create module index file at docs/modules/module-2/index.md
+- [ ] T004 [P] Create module index file at docs/module-2/index.md
 - [ ] T005 [P] Create test directory structure at tests/content/ and tests/code_examples/
 
 ---
@@ -228,7 +228,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 ### Documentation & Index
 
-- [ ] T110 [P] Write comprehensive module index at docs/modules/module-2/index.md with overview, prerequisites, learning goals
+- [ ] T110 [P] Write comprehensive module index at docs/module-2/index.md with overview, prerequisites, learning goals
 - [ ] T111 [P] Add module navigation links to all chapter files (Previous/Next chapter)
 - [ ] T112 [P] Create module summary in index: What learners will achieve, time estimate (12 hours)
 - [ ] T113 [P] Add "How to use this module" section with recommended sequence and optional paths
@@ -238,7 +238,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 - [ ] T114 [P] Create test_markdown_lint.py to validate CommonMark syntax with Vale
 - [ ] T115 [P] Create test_links.py to check all internal and external links
 - [ ] T116 [P] Create test_accessibility.py to verify WCAG 2.1 AA compliance (alt text, headings, contrast)
-- [ ] T117 Run Vale linting on all chapter markdown files (docs/modules/module-2/*.md)
+- [ ] T117 Run Vale linting on all chapter markdown files (docs/module-2/*.md)
 - [ ] T118 Run markdown-link-check on all chapter files
 - [ ] T119 Verify all images have descriptive alt text (<200KB file size)
 - [ ] T120 Validate all code examples are syntactically correct (Python, bash, URDF, SDF)

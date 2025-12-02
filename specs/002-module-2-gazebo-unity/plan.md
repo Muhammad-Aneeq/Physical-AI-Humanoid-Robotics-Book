@@ -39,9 +39,9 @@ Module 2 teaches learners to simulate humanoid robots in digital twins using Gaz
 - MUST wrap lines at 100 characters (except code blocks, URLs)
 
 **✓ Content Organization & Modularity** (Rule III):
-- Structure: `docs/modules/module-2/` with chapters as separate files
+- Structure: `docs/module-2/` with chapters as separate files
 - Naming: kebab-case (e.g., `chapter-2-1-introduction.md`, `chapter-2-3-gazebo-plugins.md`)
-- Index: `docs/modules/module-2/index.md` as module entry point
+- Index: `docs/module-2/index.md` as module entry point
 - Reusable content: `docs/_partials/ros2-setup.md`, `docs/_partials/gazebo-install.md`
 - File size: Each chapter <500 lines (split if needed)
 
@@ -135,7 +135,7 @@ tests/
     └── test_chapter_2_6_obstacle.py        # Test obstacle avoidance logic
 ```
 
-**Structure Decision**: Educational content (book module) with markdown chapters, reusable partials, and tested code examples. Structure follows Docusaurus conventions with `docs/modules/module-2/` for learner-facing content and `specs/002-module-2-gazebo-unity/` for meta-documentation (spec, plan, tasks). All code examples stored in `docs/assets/module-2/code/` with corresponding test files to ensure runnability.
+**Structure Decision**: Educational content (book module) with markdown chapters, reusable partials, and tested code examples. Structure follows Docusaurus conventions with `docs/module-2/` for learner-facing content and `specs/002-module-2-gazebo-unity/` for meta-documentation (spec, plan, tasks). All code examples stored in `docs/assets/module-2/code/` with corresponding test files to ensure runnability.
 
 ## Complexity Tracking
 

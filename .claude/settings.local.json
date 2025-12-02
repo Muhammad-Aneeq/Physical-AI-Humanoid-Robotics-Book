@@ -16,7 +16,14 @@
       "Bash(.specify/scripts/bash/setup-plan.sh:*)",
       "SlashCommand(/sp.tasks)",
       "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
-      "Bash(git rev-parse:*)"
+      "Bash(git rev-parse:*)",
+      "Bash(npm run start:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(git --version:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
