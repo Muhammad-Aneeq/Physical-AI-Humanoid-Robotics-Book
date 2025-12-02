@@ -5,6 +5,13 @@ sidebar_label: "1.7 Mini-Project"
 sidebar_position: 7
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue="content" groupId="chapter-view">
+
+<TabItem value="content" label="Content" default>
+
 # Chapter 1.7: Module 1 Mini-Project - Sensor Tower
 
 ## Putting It All Together
@@ -789,3 +796,85 @@ In **Module 2: Gazebo Simulation**, you'll:
 
 **Module 1 Status**: Complete ✅
 **Next Module**: [Module 2: Gazebo Simulation](../../module-2/index.md)
+
+</TabItem>
+
+<TabItem value="summary" label="Summary">
+
+## Quick Summary
+
+**Project Overview:**
+Build a complete sensor tower system demonstrating Module 1 mastery—custom messages, publishers, subscribers, multi-node communication, and visualization.
+
+**System Architecture:**
+- 3 sensor publisher nodes (temperature, humidity, light)
+- 1 monitor subscriber node (aggregates all sensor data)
+- Custom message types for each sensor
+- Real-time data streaming and visualization
+
+**Requirements Checklist:**
+
+**Phase 1: Custom Messages** ✅
+- [ ] Create `SensorReading.msg` with: `float32 value`, `string unit`, `int64 timestamp`, `string sensor_id`, `bool is_valid`
+- [ ] Build `custom_msgs` package and verify with `ros2 interface show`
+
+**Phase 2: Publisher Nodes** ✅
+- [ ] `temperature_publisher`: Publishes to `/sensors/temperature` at 2 Hz (range 20-30°C)
+- [ ] `humidity_publisher`: Publishes to `/sensors/humidity` at 2 Hz (range 40-80%)
+- [ ] `light_publisher`: Publishes to `/sensors/light` at 5 Hz (range 100-1000 lux)
+- [ ] All publishers use `SensorReading` message type with proper units and sensor_id
+
+**Phase 3: Monitor Node** ✅
+- [ ] Subscribes to all 3 sensor topics
+- [ ] Implements 3 callback functions (one per sensor)
+- [ ] Logs received data in format: `"[TEMP] 23.5°C from sensor_temp_01 at timestamp X"`
+- [ ] Tracks total messages received from each sensor
+
+**Phase 4: Verification** ✅
+- [ ] All 4 nodes run simultaneously without errors
+- [ ] `ros2 topic list` shows 3 sensor topics
+- [ ] `ros2 topic echo` displays messages for each topic
+- [ ] `ros2 topic hz` confirms correct publish rates (2 Hz for temp/humidity, 5 Hz for light)
+- [ ] `rqt_graph` shows 3 publishers → 3 topics → 1 monitor subscriber
+- [ ] Monitor logs display data from all sensors
+
+**Learning Outcomes Demonstrated:**
+✅ Custom message design and generation
+✅ Publisher node implementation with timers
+✅ Subscriber node with multiple callbacks
+✅ Multi-topic communication patterns
+✅ ROS 2 CLI debugging tools (topic list/echo/hz)
+✅ System visualization with rqt_graph
+
+**Common Issues:**
+- **Messages not received**: Check topic names match exactly (`/sensors/temperature` not `/temperature`)
+- **Wrong publish rate**: Verify timer period (2 Hz = 0.5s, 5 Hz = 0.2s)
+- **Missing dependencies**: Add `<depend>custom_msgs</depend>` to all node packages
+- **Build errors**: Run `colcon build` for both `custom_msgs` and node packages
+
+**Extension Ideas (Optional):**
+1. Add data validation (reject out-of-range values, mark `is_valid=false`)
+2. Implement statistics node calculating min/max/avg for each sensor over 10s window
+3. Add alarm node that publishes warning when temperature > 28°C
+4. Create launch file starting all 4 nodes with one command
+5. Visualize sensor data with plotjuggler or custom RViz2 displays
+
+**Success Criteria:**
+- All nodes run without crashes for 60+ seconds
+- Monitor displays data from all 3 sensors correctly
+- rqt_graph shows proper connections
+- Topic rates match specifications (±10%)
+
+**Module 1 Complete!** You've mastered ROS 2 fundamentals: nodes, topics, messages, services, URDF, RViz2. Ready for Module 2 (Gazebo Simulation)!
+
+**Quick Check:**
+- [ ] Have you created custom messages for sensor data?
+- [ ] Have you implemented 3 publisher nodes with different rates?
+- [ ] Have you created a monitor subscribing to all topics?
+- [ ] Have you verified the system with ros2 CLI tools and rqt_graph?
+
+**Prerequisites for Module 2:** Completed sensor tower project, understanding of multi-node systems, proficiency with ROS 2 CLI tools, ready to learn physics simulation in Gazebo.
+
+</TabItem>
+
+</Tabs>

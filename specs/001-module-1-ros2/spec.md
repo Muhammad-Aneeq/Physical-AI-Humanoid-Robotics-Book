@@ -14,7 +14,45 @@ ROS 2 (Robot Operating System 2) is the middleware that powers modern robotics. 
 
 **Key Focus**: Communication patterns (publish-subscribe, services), robot modeling (URDF), visualization (RViz2), and foundation for simulation, navigation, and voice control.
 
+**NEW FEATURE**: Each of the 7 chapters provides a dual-view interface with Content and Summary tabs, allowing learners to toggle between full chapter content and condensed 1-2 page summaries for quick review and prerequisite refresher.
+
 ## User Scenarios & Testing
+
+### User Story 1 - Content/Summary Tab Navigation (Priority: P1)
+
+Learners access each chapter and toggle between full content (default) and condensed summary views to support different learning modes: deep learning (Content tab) and quick review/reference (Summary tab).
+
+**Why this priority**: Core feature enabler - without tab navigation, summary feature cannot function. This is the minimum viable interface that delivers value (quick review capability).
+
+**Independent Test**: Open any chapter, verify Content tab shows by default, click Summary tab and see 300-600 word condensed version, return to Content tab. Verifies tab toggle works independently without requiring other features.
+
+**Acceptance Scenarios**:
+
+1. **Given** learner opens Chapter 1.1 for first time, **When** page loads, **Then** Content tab is active (default) and displays full chapter content with all sections
+2. **Given** learner is viewing Content tab, **When** clicks Summary tab, **Then** Summary tab becomes active and displays condensed 300-600 word summary
+3. **Given** learner is viewing Summary tab, **When** clicks Content tab, **Then** Content tab becomes active and displays full chapter content
+4. **Given** learner selects Summary tab in Chapter 1.1, **When** navigates to Chapter 1.2, **Then** Chapter 1.2 opens with Summary tab active (tab selection persists via groupId)
+5. **Given** learner is viewing Summary tab, **When** using keyboard Tab/Shift+Tab to navigate, **Then** can select between tabs and press Enter/Space to activate selected tab
+6. **Given** learner uses screen reader, **When** encountering tab interface, **Then** screen reader announces tab labels ("Content" and "Summary") with appropriate ARIA roles
+
+---
+
+### User Story 2 - Summary Content for Quick Review (Priority: P1)
+
+Learners use Summary tab to quickly review core concepts (300-600 words) before assessments or when refreshing prerequisites for next chapter, without re-reading full content.
+
+**Why this priority**: Primary value proposition - summaries enable efficient learning review. Testable independently by verifying summary content quality and usefulness.
+
+**Independent Test**: Read Summary tab for any chapter, verify it contains core concepts, essential commands (2-3 code examples), key diagrams, and prerequisites for next chapter in 300-600 words.
+
+**Acceptance Scenarios**:
+
+1. **Given** learner completed Chapter 1.2 week ago, **When** opens Summary tab before Chapter 1.3, **Then** sees 500-550 word summary with pub/sub concepts, minimal talker.py code (10 lines), essential rclpy APIs, and key commands
+2. **Given** learner reviewing for Module 1 assessment, **When** opens Chapter 1.5 Summary tab, **Then** sees 550-600 word summary with URDF structure, joint types (fixed, revolute, prismatic, continuous), minimal URDF example, and kinematic tree diagram
+3. **Given** learner needs quick reference for ROS 2 commands, **When** opens Chapter 1.1 Summary tab, **Then** sees essential commands (ros2 run, ros2 topic list, ros2 topic echo) with brief descriptions
+4. **Given** learner preparing for next chapter, **When** reads Summary tab "Prerequisites for Next Chapter" section, **Then** understands what concepts to remember and what tools to have set up
+
+---
 
 ### Learning Journey 1: ROS 2 Communication Fundamentals (Priority: P1)
 
@@ -70,10 +108,19 @@ Learners call existing services (turtlesim spawn), create service server (AddTwo
 
 ### Edge Cases
 
+**ROS 2 System Edge Cases**:
 - What happens when a subscriber connects to a topic before any publisher exists? (ROS 2 allows late joining; subscriber waits)
 - How does the system handle invalid URDF syntax? (robot_state_publisher fails with XML parsing error; check with `check_urdf`)
 - What if a service server crashes while processing a request? (Client receives timeout error after default 5s; handle with try/except)
 - How does ROS 2 handle network partitions in distributed systems? (DDS discovery may lose nodes; monitor with `ros2 node list`)
+
+**Tab Interface Edge Cases**:
+- What happens when learner has JavaScript disabled and tabs don't render? (Docusaurus tabs degrade gracefully; content shows linearly without tabs)
+- How does system handle very long summary content (>600 words)? (Content creation validation enforces 300-600 word limit; word count tool prevents overruns)
+- What if learner switches tabs mid-page scroll? (Tab content loads at scroll position 0; expected behavior for content switch)
+- How does tab interface work on mobile devices with narrow screens? (Docusaurus responsive tabs stack vertically on mobile; touch-friendly with adequate hit areas)
+- What if learner uses old browser without CSS Grid support? (Docusaurus Infima framework uses progressive enhancement; tabs fall back to stacked layout)
+- What happens when learner has already completed chapters and tab selection persists across page loads? (localStorage via groupId maintains preference; consistent UX improves efficiency)
 
 ## Requirements
 
@@ -89,6 +136,47 @@ Learners call existing services (turtlesim spawn), create service server (AddTwo
 - **FR-008**: Learners MUST create service servers that respond to client requests with custom .srv message types
 - **FR-009**: Learners MUST use ros2 CLI tools (node list, topic echo, topic info, service call) to debug running systems
 - **FR-010**: Learners MUST visualize ROS 2 graph topology using rqt_graph to identify nodes, topics, and message flow
+- **FR-011**: Each of the 7 chapters (1.1 through 1.7) MUST provide Content and Summary tabs, with Content tab as default on first load
+- **FR-012**: Content tab MUST display full chapter content including all sections (Learning Objectives, Prerequisites, What You'll Build, content sections, code examples, diagrams, assessments, Key Takeaways, What's Next)
+- **FR-013**: Summary tab MUST display condensed 1-2 page version (300-600 words) covering core concepts, essential commands (2-3 code examples max), critical troubleshooting tips, and prerequisites for next chapter
+- **FR-014**: Tab interface MUST allow learners to toggle between Content and Summary tabs via mouse click or keyboard (Tab/Shift+Tab to select, Enter/Space to activate)
+- **FR-015**: Tab selection MUST persist across chapters (groupId="chapter-view" syncs selection in localStorage; if learner selects Summary in Ch 1.1, Ch 1.2 opens to Summary)
+- **FR-016**: Tab interface MUST be keyboard-accessible for WCAG 2.1 AA compliance (Tab/Shift+Tab navigation, Enter/Space activation, arrow keys for tab navigation)
+- **FR-017**: Tab interface MUST use ARIA roles (role="tablist", role="tab", role="tabpanel", aria-selected, aria-controls) for screen reader compatibility
+- **FR-018**: Active tab MUST have visual focus indicator with 3:1 minimum contrast ratio against background
+- **FR-019**: Tab labels MUST clearly identify content type ("Content" vs "Summary") without relying solely on icons or color
+- **FR-020**: Summary content MUST extract key points from existing Key Takeaways sections to maintain consistency with full chapter content
+
+### Non-Functional Requirements
+
+**Accessibility (WCAG 2.1 AA)**:
+- **NFR-001**: Tab components MUST be keyboard-navigable using Tab/Shift+Tab for tab selection and Enter/Space for activation
+- **NFR-002**: Tab interface MUST use ARIA roles (role="tablist", role="tab", role="tabpanel") and attributes (aria-selected, aria-controls, aria-labelledby) for screen reader compatibility
+- **NFR-003**: Active tab MUST have visual focus indicator with 3:1 contrast ratio minimum against background
+- **NFR-004**: Tab labels MUST clearly identify content type ("Content" vs "Summary") without relying solely on icons or color (text labels required)
+
+**Content Quality**:
+- **NFR-005**: Chapter summaries MUST be 300-600 words (1-2 pages when rendered) to ensure quick scanning
+- **NFR-006**: Summary content MUST extract key points from existing Key Takeaways sections to maintain consistency with full content
+- **NFR-007**: Summaries MUST include 2-3 essential code examples maximum (not full walkthroughs) formatted as syntax-highlighted snippets
+- **NFR-008**: Summaries MUST use Bloom's Taxonomy Remember/Understand level concepts (definitions, comparisons, key commands) not Apply/Analyze depth
+- **NFR-009**: All code examples MUST be tested on ROS 2 Humble + Ubuntu 22.04 and executable without errors
+- **NFR-010**: Images MUST be compressed to <200KB per file with descriptive alt text (WCAG 2.1 AA)
+- **NFR-011**: Learning objectives MUST use Bloom's Taxonomy action verbs (Remember, Understand, Apply, Analyze, Create)
+- **NFR-012**: Writing style MUST use active voice and second person ("you will create" not "one should create")
+- **NFR-013**: Markdown MUST use semantic headings (h2 for chapters, h3 for sections, h4 for subsections) with fenced code blocks and language identifiers
+
+**Performance**:
+- **NFR-014**: Docusaurus pages MUST load in <2 seconds on 10 Mbps connection
+- **NFR-015**: Summary content MUST load in <1 second (same as full content, no performance degradation from tab feature)
+- **NFR-016**: No layout shift when switching between tabs (content pre-rendered, no lazy loading causing reflow)
+- **NFR-017**: Lighthouse performance score MUST be >90 for all module pages
+
+**Usability**:
+- **NFR-018**: Each chapter MUST include estimated completion time (30 min increments) at top
+- **NFR-019**: Prerequisites MUST be clearly stated at chapter start with links to required previous chapters
+- **NFR-020**: Assessments MUST include expected pass rate to set learner expectations
+- **NFR-021**: Error messages in code examples MUST include troubleshooting tips (common issues, fixes)
 
 ### Key Entities
 
@@ -104,19 +192,36 @@ Learners call existing services (turtlesim spawn), create service server (AddTwo
 - **RViz2**: 3D visualization tool for robot models, sensor data, transforms, and navigation paths
 - **rclpy**: ROS 2 Python client library providing APIs for nodes, publishers, subscribers, services
 - **DDS (Data Distribution Service)**: Middleware layer beneath ROS 2 enabling real-time peer-to-peer communication
+- **Chapter**: Educational content unit covering specific ROS 2 topic (e.g., Publishers & Subscribers, URDF, Services) with two views: Content (full) and Summary (condensed 300-600 words)
+- **Tab Interface**: UI component providing Content/Summary toggle with defaultValue="content", groupId="chapter-view", ARIA roles, keyboard-accessible, screen-reader compatible
+- **Summary Content**: Condensed chapter version (300-600 words) with core concepts (3-5 definitions), essential commands (2-3 code examples), key diagram (1-2), quick check (self-assessment), and prerequisites for next chapter
 
 ## Success Criteria
 
 ### Measurable Outcomes
 
-- **SC-001**: Learners can install ROS 2 Humble and run turtlesim demo within 30 minutes (85% success rate)
-- **SC-002**: Learners can create talker/listener node pair and verify communication with `ros2 topic echo` within 45 minutes (80% success rate)
-- **SC-003**: Learners can design custom message type (3+ fields), build package, and publish/subscribe within 60 minutes (75% success rate)
-- **SC-004**: Learners can create URDF with 5+ links, load in RViz2, and verify TF tree within 60 minutes (70% success rate)
-- **SC-005**: Learners can create service server/client pair with custom .srv type and call successfully within 45 minutes (75% success rate)
-- **SC-006**: Learners score 80%+ on ROS 2 concepts quiz (nodes, topics, messages, services, URDF) covering Remember/Understand levels
-- **SC-007**: Learners complete mini-project (sensor tower with 3 sensors + monitor node) with all requirements within 90 minutes (70% success rate)
-- **SC-008**: Learners can debug communication issues using ros2 CLI tools and rqt_graph within 30 minutes (75% success rate)
+**Tab Feature**:
+- **SC-001**: Learners can locate and switch to Summary tab within 10 seconds of opening a chapter (95% success rate measured via usability testing)
+- **SC-002**: Learners report summaries as "helpful for review" on post-module survey (80%+ positive responses)
+- **SC-003**: Summary content loads in <1 second with no performance degradation compared to full content (measured via Lighthouse)
+- **SC-004**: 60%+ of learners revisit Summary tabs before module assessments (measured via analytics if available)
+- **SC-005**: Tab interface passes WCAG 2.1 AA keyboard navigation and screen reader testing (100% of test scenarios pass)
+
+**Learning Outcomes (All Chapters)**:
+- **SC-006**: 85%+ of learners install ROS 2 Humble and run turtlesim demo within 30 minutes (Chapter 1.1)
+- **SC-007**: 80%+ of learners create talker/listener node pair and verify communication with ros2 topic echo within 45 minutes (Chapter 1.2)
+- **SC-008**: 75%+ of learners design custom message type (3+ fields), build package with colcon, and publish/subscribe successfully within 60 minutes (Chapter 1.3)
+- **SC-009**: 70%+ of learners create URDF with 5+ links, load in RViz2, and verify TF tree within 60 minutes (Chapter 1.5)
+- **SC-010**: 75%+ of learners create service server/client pair with custom .srv type and call successfully within 45 minutes (Chapter 1.4)
+- **SC-011**: 70%+ of learners complete mini-project (sensor tower with 3 sensors + monitor node) with all requirements within 90 minutes (Chapter 1.7)
+- **SC-012**: Learners score 80%+ on ROS 2 concepts quiz (nodes, topics, messages, services, URDF) covering Remember/Understand levels
+- **SC-013**: Learners can debug communication issues using ros2 CLI tools (node list, topic echo, rqt_graph) within 30 minutes (75% success rate)
+
+**Content Quality**:
+- **SC-014**: All code examples execute without errors on ROS 2 Humble + Ubuntu 22.04 (100% pass rate)
+- **SC-015**: All chapter summaries contain 300-600 words verified with word count tool (100% compliance)
+- **SC-016**: All summaries include 2-3 code examples maximum (no full code listings in summaries)
+- **SC-017**: All summaries extract content from existing Key Takeaways sections (maintains consistency)
 
 ## Dependencies
 
@@ -149,33 +254,66 @@ Learners call existing services (turtlesim spawn), create service server (AddTwo
 
 ### External Dependencies
 
-- **ROS 2 Humble** (LTS release, Ubuntu 22.04 recommended)
+- **ROS 2 Humble Hawksbill** (LTS release, Ubuntu 22.04 recommended, supported until 2027)
 - **Python 3.10+** (for rclpy nodes)
-- **colcon** (ROS 2 build system)
-- **Ubuntu 22.04** (recommended) OR Windows 10/11 with WSL2
+- **colcon** (ROS 2 build system, installed with ros-humble-desktop)
+- **Ubuntu 22.04 Jammy Jellyfish** (recommended) OR **Windows 10/11 with WSL2** (Ubuntu 22.04 in WSL)
 - **RViz2** (included with ROS 2 desktop install)
 - **rqt_graph** (included with ROS 2 desktop install)
+- **Docusaurus 3.9.2** (book frontend platform with @docusaurus/preset-classic)
+- **@theme/Tabs and @theme/TabItem components** (included in @docusaurus/theme-classic, no additional packages needed)
+
+### Technical Platform Dependencies
+
+- **Docusaurus 3.9.2**: Book frontend with built-in MDX support and tab components
+- **Node.js 18+**: Required for Docusaurus build and development server
+- **npm or yarn**: Package manager for installing Docusaurus dependencies
+- **Git**: Version control for tracking chapter changes and spec-driven workflow
 
 ## Out of Scope
 
-- **ROS 2 Actions**: Deferred to Module 3 (long-running tasks like navigation)
-- **ROS 1**: Legacy system; course focuses exclusively on ROS 2
-- **Real Hardware Integration**: Deferred to Module 4 (simulations only in Module 1)
-- **Multi-Robot Systems**: Single robot focus; swarms out of scope
-- **C++ rclcpp**: Python-only course for accessibility
-- **Custom DDS Configuration**: Default Fast-DDS sufficient; advanced tuning out of scope
-- **ROS 2 Parameters**: Brief mention only; not core focus
-- **Launch Files**: Introduced in Module 2 (simulation context)
-- **tf2 Transforms**: Basic understanding only; depth deferred to Module 3 (navigation)
+The following are explicitly excluded from this module to maintain focus and manage scope:
+
+**ROS 2 System**:
+- **ROS 2 Actions**: Long-running tasks (e.g., navigation goals) deferred to Module 3 (navigation context)
+- **ROS 1**: Legacy system; course focuses exclusively on ROS 2 for modern robotics
+- **Real Hardware Integration**: Physical robots, motor controllers, actual sensors deferred to Module 4 (simulations only in Module 1)
+- **Multi-Robot Systems**: Single robot focus; swarms, fleet management, distributed coordination out of scope
+- **C++ rclcpp**: Python-only course for accessibility (most learners know Python, not C++)
+- **Custom DDS Configuration**: Default Fast-DDS sufficient; advanced tuning (QoS profiles beyond basics, custom discovery, network optimization) out of scope
+- **ROS 2 Parameters**: Brief mention only in examples; not core focus (deferred to Module 2 in simulation context)
+- **Launch Files**: Introduced in Module 2 (simulation launch context); minimal coverage in Module 1 Ch 1.6
+- **tf2 Transforms**: Basic understanding only in Ch 1.6 (TF tree visualization); depth deferred to Module 3 (navigation and localization)
+- **Gazebo/Isaac Sim**: Simulation environments deferred to Modules 2 and 3
+- **Computer Vision (OpenCV, camera drivers)**: Deferred to Module 4 (VLA context)
+- **Machine Learning / AI Models**: Deferred to Module 4 (VLA for LLMs, CLIP, pose estimation)
+- **Production Deployment**: Docker, Kubernetes, cloud deployment deferred to capstone
+- **Security Hardening**: DDS security plugins, encrypted communication beyond defaults deferred
+
+**Tab Feature**:
+- **Custom Docusaurus Theme**: Use default Docusaurus theme; no custom React components beyond tab usage
+- **Advanced Accessibility Features**: Beyond WCAG 2.1 AA (e.g., AAA level, captions for videos if added later)
+- **Internationalization (i18n)**: English only; translations deferred
+- **Analytics Integration**: Optional; success criteria SC-004 and SC-012 note "if available"
+- **Auto-Generated Summaries**: Summaries manually written by extracting from Key Takeaways; no AI generation in this spec
 
 ## Assumptions
 
-- Learners have basic Python knowledge (functions, classes, imports, error handling)
-- Learners are comfortable with command-line interfaces (bash, file navigation)
-- Learners have access to Ubuntu 22.04 machine or Windows with WSL2
-- Learners can install software packages with sudo privileges
-- Learners have stable internet connection for ROS 2 package installation
-- Learners commit 3 hours per week for 4 weeks (12 total hours)
+- Learners have basic Python knowledge (functions, classes, imports, error handling, f-strings)
+- Learners are comfortable with command-line interfaces (bash, cd, ls, file navigation, environment variables)
+- Learners have access to Ubuntu 22.04 machine OR Windows 10/11 with WSL2 installed
+- Learners can install software packages with sudo privileges (root access or administrator rights)
+- Learners have stable internet connection for ROS 2 package installation (~2.5GB ros-humble-desktop)
+- Learners commit 3 hours per week for 4 weeks (12 total hours) to complete module
+- Learners have 3GB free disk space for ROS 2 installation
+- Docusaurus 3.9.2 is already installed and configured in book_frontend/ directory
+- Existing chapter files (chapter-1-1-introduction.md through chapter-1-7-mini-project.md) contain complete content and Key Takeaways sections
+- Summary content will be manually written by extracting from existing Key Takeaways sections (not auto-generated)
+- Tab feature will use Docusaurus built-in @theme/Tabs components (no custom React development needed)
+- Learners use modern web browsers (Chrome, Firefox, Safari, Edge - latest versions supporting CSS Grid, ES6, localStorage)
+- Learners have JavaScript enabled in browser (Docusaurus requires JS; tabs degrade to linear content without JS)
+- Course focuses on software development for robotics (not electrical engineering, mechanical design, or hardware assembly)
+- ROS 2 Humble remains LTS and recommended version throughout course duration (supported until May 2027)
 
 ## Chapter Breakdown
 
@@ -488,7 +626,7 @@ Learners call existing services (turtlesim spawn), create service server (AddTwo
 1. **Clarification** (if needed): Run `/sp.clarify` to identify underspecified sections
 2. **Planning**: Run `/sp.plan` to design implementation approach (chapter writing, code creation, diagram design)
 3. **Task Breakdown**: Run `/sp.tasks` to generate granular task list (T001: Write Chapter 1.1 intro, T002: Create install script, etc.)
-4. **Implementation**: Run `/sp.implement` to execute tasks (write chapters to `book_frontend/docs/module-1/`, create code examples in `book_frontend/static/examples/module-1/`)
+4. **Implementation**: Run `/sp.implement` to execute tasks (write chapters to `book_frontend/book_frontend/docs/module-1/`, create code examples in `book_frontend/static/examples/module-1/`)
 5. **Review & Iterate**: Test code examples, verify accessibility, gather learner feedback
 
 ---

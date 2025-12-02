@@ -30,8 +30,8 @@ Module 4 teaches Vision-Language-Action (VLA) integration for Physical AI, enabl
 ## Project Structure
 
 **Documentation**: specs/004-module-4-vla/ (spec, plan, research, data-model, contracts, tasks)
-**Content**: docs/module-4/ (9 chapter files, index, _category_.json)
-**Assets**: docs/assets/module-4/ (diagrams, Whisper integration code, LLM prompt templates, CLIP examples, state machines, images)
+**Content**: book_frontend/docs/module-4/ (9 chapter files, index, _category_.json)
+**Assets**: book_frontend/docs/assets/module-4/ (diagrams, Whisper integration code, LLM prompt templates, CLIP examples, state machines, images)
 **Tests**: tests/content/ (lint, links, accessibility), tests/code_examples/ (Whisper, LLM mock, CLIP, state machine validation)
 
 ## Phase 0: Research

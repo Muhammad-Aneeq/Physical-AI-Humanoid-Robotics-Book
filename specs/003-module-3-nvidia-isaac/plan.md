@@ -30,8 +30,8 @@ Module 3 introduces NVIDIA Isaac platform for AI-powered robotics, covering Isaa
 ## Project Structure
 
 **Documentation**: specs/003-module-3-nvidia-isaac/ (spec, plan, research, data-model, contracts, tasks)
-**Content**: docs/module-3/ (9 chapter files, index, _category_.json)
-**Assets**: docs/assets/module-3/ (diagrams, USD scenes, Replicator scripts, Isaac ROS configs, images)
+**Content**: book_frontend/docs/module-3/ (9 chapter files, index, _category_.json)
+**Assets**: book_frontend/docs/assets/module-3/ (diagrams, USD scenes, Replicator scripts, Isaac ROS configs, images)
 **Tests**: tests/content/ (lint, links, accessibility), tests/code_examples/ (USD, Docker, Nav2 validation)
 
 ## Phase 0: Research

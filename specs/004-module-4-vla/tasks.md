@@ -17,8 +17,8 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 ## Path Conventions
 
-- **Educational Content**: `docs/module-4/` (chapter markdown files)
-- **Assets**: `docs/assets/module-4/` (code examples, diagrams, prompt templates, images)
+- **Educational Content**: `book_frontend/docs/module-4/` (chapter markdown files)
+- **Assets**: `book_frontend/docs/assets/module-4/` (code examples, diagrams, prompt templates, images)
 - **Documentation**: `specs/004-module-4-vla/` (research, data model, contracts)
 - **Tests**: `tests/content/` and `tests/code_examples/`
 
@@ -28,10 +28,10 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 **Purpose**: Initialize module structure and configuration
 
-- [X] T001 Create module directory structure at docs/module-4/
-- [X] T002 Create assets directory structure at docs/assets/module-4/ with subdirs (code/, prompts/, diagrams/, images/)
+- [X] T001 Create module directory structure at book_frontend/docs/module-4/
+- [X] T002 Create assets directory structure at book_frontend/docs/assets/module-4/ with subdirs (code/, prompts/, diagrams/, images/)
 - [X] T003 [P] Create _category_.json for Docusaurus sidebar configuration
-- [X] T004 [P] Create module index file at docs/module-4/index.md
+- [X] T004 [P] Create module index file at book_frontend/docs/module-4/index.md
 - [X] T005 [P] Create test directory structure for Module 4 validation
 
 ---
@@ -49,8 +49,8 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 - [X] T010 [P] Create contracts/chapter-4-4-llm-task-planner.md for LLM-based action planning
 - [X] T011 [P] Create contracts/chapter-4-5-visual-grounding.md for CLIP-based object detection
 - [X] T012 [P] Create contracts/chapter-4-7-vla-pipeline.md for end-to-end integration
-- [X] T013 [P] Create reusable partial at docs/_partials/api-keys-setup.md for OpenAI/Anthropic configuration
-- [X] T014 [P] Create reusable partial at docs/_partials/llm-safety-guidelines.md for ethical AI usage
+- [X] T013 [P] Create reusable partial at book_frontend/docs/_partials/api-keys-setup.md for OpenAI/Anthropic configuration
+- [X] T014 [P] Create reusable partial at book_frontend/docs/_partials/llm-safety-guidelines.md for ethical AI usage
 
 **Checkpoint**: Foundation documents ready - learning journey content implementation can now begin
 
@@ -78,14 +78,14 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 - [X] T023 [P] [LJ1] Create whisper-architecture.svg diagram showing encoder-decoder Transformer
 - [X] T024 [LJ1] Add Whisper fundamentals: Why Whisper (99 languages, noise robust), model sizes (tiny, base, small, medium, large)
 - [X] T025 [LJ1] Add API-based approach: OpenAI Whisper API, cost (~$0.006/minute), latency (~1-2s)
-- [X] T026 [P] [LJ1] Create code example at docs/assets/module-4/code/chapter-4-2/whisper_api_basic.py
+- [X] T026 [P] [LJ1] Create code example at book_frontend/docs/assets/module-4/code/chapter-4-2/whisper_api_basic.py
 - [X] T027 [LJ1] Add guided walkthrough: Record 5-second audio, send to Whisper API, print transcript
 - [X] T028 [LJ1] Add exercise 1: Test Whisper with different accents (record in various languages), verify accuracy
 - [X] T029 [LJ1] Add local Whisper approach: `pip install openai-whisper`, GPU acceleration (faster-whisper)
-- [X] T030 [P] [LJ1] Create code example at docs/assets/module-4/code/chapter-4-2/whisper_local_basic.py
+- [X] T030 [P] [LJ1] Create code example at book_frontend/docs/assets/module-4/code/chapter-4-2/whisper_local_basic.py
 - [X] T031 [LJ1] Add exercise 2: Compare API vs local latency and accuracy on same audio clip
 - [X] T032 [LJ1] Add ROS 2 integration: Create WhisperNode that publishes to `/voice_command` (String message)
-- [X] T033 [P] [LJ1] Create whisper_ros_node.py at docs/assets/module-4/code/chapter-4-2/
+- [X] T033 [P] [LJ1] Create whisper_ros_node.py at book_frontend/docs/assets/module-4/code/chapter-4-2/
 - [X] T034 [LJ1] Add guided walkthrough: Run WhisperNode, speak into mic, verify topic with `ros2 topic echo /voice_command`
 - [X] T035 [LJ1] Add exercise 3: Implement streaming transcription (continuously listen, not single-shot)
 - [X] T036 [LJ1] Add milestone validation: Voice commands published to ROS 2 with <2s latency
@@ -97,7 +97,7 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 - [ ] T039 [P] [LJ1] Create wake-word-flow.svg diagram showing audio stream → wake-word detector → Whisper
 - [ ] T040 [LJ1] Add wake-word fundamentals: Why needed (reduce false triggers), libraries (Porcupine, Snowboy, Pocketsphinx)
 - [ ] T041 [LJ1] Add Porcupine integration: Free tier setup, "Hey Robot" wake-word, callback on detection
-- [ ] T042 [P] [LJ1] Create porcupine_wake_word.py example at docs/assets/module-4/code/chapter-4-3/
+- [ ] T042 [P] [LJ1] Create porcupine_wake_word.py example at book_frontend/docs/assets/module-4/code/chapter-4-3/
 - [ ] T043 [LJ1] Add guided walkthrough: Run wake-word node, say "Hey Robot, turn left," only "turn left" transcribed
 - [ ] T044 [LJ1] Add exercise 1: Test in noisy environment (background music), verify wake-word still triggers
 - [ ] T045 [LJ1] Add audio preprocessing: Noise reduction (noisereduce library), VAD (Voice Activity Detection)
@@ -129,22 +129,22 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 - [ ] T055 [P] [LJ2] Create llm-planning-flow.svg diagram showing command → prompt → LLM → JSON plan → action executor
 - [ ] T056 [LJ2] Add LLM fundamentals: GPT-4 vs Claude 3, API costs (~$0.01-$0.10/command), context limits (8k-100k tokens)
 - [ ] T057 [LJ2] Add prompt engineering: System message (robot capabilities), few-shot examples, output format (JSON schema)
-- [ ] T058 [P] [LJ2] Create prompt template at docs/assets/module-4/prompts/robot_planner_system.txt
-- [ ] T059 [P] [LJ2] Create few-shot examples at docs/assets/module-4/prompts/planning_examples.json
+- [ ] T058 [P] [LJ2] Create prompt template at book_frontend/docs/assets/module-4/prompts/robot_planner_system.txt
+- [ ] T059 [P] [LJ2] Create few-shot examples at book_frontend/docs/assets/module-4/prompts/planning_examples.json
 - [ ] T060 [LJ2] Add guided walkthrough: Send "Bring me the blue cup" to GPT-4 with prompt, inspect JSON response
 - [ ] T061 [LJ2] Add exercise 1: Test with 5 different commands, verify LLM generates valid action sequences
 - [ ] T062 [LJ2] Add action primitives: Define robot vocabulary (navigate, grasp, place, search, wait)
 - [ ] T063 [P] [LJ2] Create action_primitives.py with primitive definitions and validators
 - [ ] T064 [LJ2] Add exercise 2: Validate LLM output (all actions in primitives list, required fields present)
 - [ ] T065 [LJ2] Add ROS 2 integration: LLMPlannerNode subscribes to `/voice_command`, publishes to `/action_plan`
-- [ ] T066 [P] [LJ2] Create llm_planner_node.py at docs/assets/module-4/code/chapter-4-4/
+- [ ] T066 [P] [LJ2] Create llm_planner_node.py at book_frontend/docs/assets/module-4/code/chapter-4-4/
 - [ ] T067 [LJ2] Add guided walkthrough: Chain WhisperNode → LLMPlannerNode, verify plans published
 - [ ] T068 [LJ2] Add milestone validation: LLM generates valid action plans for 90%+ of test commands
 
 ### Chapter 4.4B: Handling Ambiguity and Errors
 
 - [ ] T069 [LJ2] Add section on ambiguous commands: "Bring me that" → LLM asks clarifying question
-- [ ] T070 [P] [LJ2] Create clarification prompt template at docs/assets/module-4/prompts/clarification_template.txt
+- [ ] T070 [P] [LJ2] Create clarification prompt template at book_frontend/docs/assets/module-4/prompts/clarification_template.txt
 - [ ] T071 [LJ2] Add exercise 3: Test ambiguous commands, verify LLM requests more information
 - [ ] T072 [LJ2] Add error handling: Invalid actions, contradictory plans, impossible requests
 - [ ] T073 [P] [LJ2] Create plan_validator.py with safety and feasibility checks
@@ -177,7 +177,7 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 - [ ] T084 [P] [LJ3] Create visual-grounding-concept.svg diagram showing text query + image → CLIP → bounding box + depth → 3D pose
 - [ ] T085 [LJ3] Add CLIP fundamentals: Contrastive learning, zero-shot classification, text-image similarity scores
 - [ ] T086 [LJ3] Add basic CLIP usage: Query "red box" against image patches, find highest similarity region
-- [ ] T087 [P] [LJ3] Create clip_basic_example.py at docs/assets/module-4/code/chapter-4-5/
+- [ ] T087 [P] [LJ3] Create clip_basic_example.py at book_frontend/docs/assets/module-4/code/chapter-4-5/
 - [ ] T088 [LJ3] Add guided walkthrough: Load image with red/blue/green boxes, query CLIP with "red box," visualize result
 - [ ] T089 [LJ3] Add exercise 1: Test CLIP with 10 object descriptions, measure accuracy (% correct detections)
 - [ ] T090 [LJ3] Add sliding window approach: Divide image into grid, run CLIP on each patch, find best match
@@ -191,11 +191,11 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 - [ ] T096 [LJ3] Write chapter section on depth-based 3D localization
 - [ ] T097 [LJ3] Add depth integration: Given bounding box + depth image, compute 3D position in camera frame
-- [ ] T098 [P] [LJ3] Create depth_to_3d.py utility functions at docs/assets/module-4/code/chapter-4-6/
+- [ ] T098 [P] [LJ3] Create depth_to_3d.py utility functions at book_frontend/docs/assets/module-4/code/chapter-4-6/
 - [ ] T099 [LJ3] Add guided walkthrough: Detect "red box" with CLIP, use depth camera to get 3D coordinates
 - [ ] T100 [LJ3] Add exercise 1: Publish detected object pose to TF (`/detected_object` frame)
 - [ ] T101 [LJ3] Add ROS 2 integration: VisualGroundingNode subscribes to `/camera/image` and `/camera/depth`, publishes to `/object_pose`
-- [ ] T102 [P] [LJ3] Create visual_grounding_node.py at docs/assets/module-4/code/chapter-4-6/
+- [ ] T102 [P] [LJ3] Create visual_grounding_node.py at book_frontend/docs/assets/module-4/code/chapter-4-6/
 - [ ] T103 [LJ3] Add exercise 2: Use `/object_pose` as Nav2 goal, navigate robot to detected object
 - [ ] T104 [LJ3] Add action primitive integration: Map LLM action "navigate to red box" → visual grounding → Nav2 goal
 - [ ] T105 [P] [LJ3] Create action_executor.py that interprets LLM plans and calls visual grounding
@@ -226,7 +226,7 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 - [ ] T114 [P] [LJ4] Create vla-state-machine.svg diagram showing states (Listening, Planning, Executing, Error, Success)
 - [ ] T115 [LJ4] Add state machine fundamentals: Why needed (manage complex flows), libraries (py_trees, SMACH, custom)
 - [ ] T116 [LJ4] Add py_trees approach: Behavior tree for VLA (sequence nodes, fallback nodes, decorators)
-- [ ] T117 [P] [LJ4] Create vla_behavior_tree.py at docs/assets/module-4/code/chapter-4-7/
+- [ ] T117 [P] [LJ4] Create vla_behavior_tree.py at book_frontend/docs/assets/module-4/code/chapter-4-7/
 - [ ] T118 [LJ4] Add guided walkthrough: Define VLA states - Listen → Plan → Ground → Navigate → Execute → Report
 - [ ] T119 [LJ4] Add exercise 1: Implement simple state machine that chains Whisper → LLM → visual grounding
 - [ ] T120 [LJ4] Add component integration: Connect all ROS 2 nodes (WhisperNode, LLMPlannerNode, VisualGroundingNode, ActionExecutor)
@@ -277,7 +277,7 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 - [ ] T148 Add project goal: Humanoid responds to voice commands for fetch-and-deliver tasks in simulated home
 - [ ] T149 Add requirements: Whisper for voice, GPT-4/Claude for planning, CLIP for object detection, Nav2 for navigation
 - [ ] T150 Add assessment rubric: Speech accuracy (15%), Plan quality (20%), Visual grounding (20%), Navigation (20%), Error recovery (15%), Integration (10%)
-- [ ] T151 [P] Create home_environment.sdf (Gazebo) or home_scene.usd (Isaac Sim) at docs/assets/module-4/
+- [ ] T151 [P] Create home_environment.sdf (Gazebo) or home_scene.usd (Isaac Sim) at book_frontend/docs/assets/module-4/
 - [ ] T152 [P] Create mini_project_vla_stack.py complete VLA system
 - [ ] T153 Add success criteria: Complete 5 fetch tasks with 80%+ success rate, recover from 2+ error types
 - [ ] T154 Add test scenarios: "Bring the red mug from kitchen," "Find the blue book," "Put the wrench on the table"
@@ -294,7 +294,7 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 ### Documentation & Index
 
-- [ ] T157 [P] Write comprehensive module index at docs/module-4/index.md
+- [ ] T157 [P] Write comprehensive module index at book_frontend/docs/module-4/index.md
 - [ ] T158 [P] Add API keys warning in index (costs, rate limits, security best practices)
 - [ ] T159 [P] Add module navigation links to all chapter files
 - [ ] T160 [P] Add ethical AI guidelines section (don't execute unsafe commands, privacy considerations)

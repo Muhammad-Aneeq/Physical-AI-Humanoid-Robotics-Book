@@ -5,6 +5,13 @@ sidebar_label: "1.6 RViz2"
 sidebar_position: 6
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue="content" groupId="chapter-view">
+
+<TabItem value="content" label="Content" default>
+
 # Chapter 1.6: Visualizing Robots in RViz2
 
 ## Seeing Your Robot Come to Life
@@ -575,3 +582,112 @@ In **Chapter 1.7: Module 1 Mini-Project**, you'll:
 
 **Chapter Status**: Complete ✅
 **Next Chapter**: [1.7 Mini-Project](./chapter-1-7-mini-project.md)
+
+</TabItem>
+
+<TabItem value="summary" label="Summary">
+
+## Quick Summary
+
+**Learning Objectives Recap:**
+- Load URDF in RViz2 using robot_state_publisher and visualize robot model
+- Configure RViz2 displays (RobotModel, TF, Grid, Axes)
+- Inspect TF tree to verify link parent-child relationships
+- Publish joint states using joint_state_publisher_gui to animate robot
+
+**Core Concepts:**
+
+**RViz2** is ROS 2's 3D visualization tool for debugging and developing robotics systems. Displays robot models (from URDF), sensor data (cameras, LiDAR, point clouds), transforms (TF tree), navigation (maps, paths), and custom markers.
+
+**RViz2 needs two inputs to render robots:**
+1. **URDF** (robot description) → Defines geometry, links, joints
+2. **Joint states** (current angles) → Defines robot pose at any moment
+
+**robot_state_publisher** node reads URDF from `/robot_description` parameter, subscribes to `/joint_states` topic, and publishes TF transforms for all links. This enables RViz2 and other nodes to know where every robot part is located in 3D space.
+
+**Workflow:**
+```
+URDF + /joint_states → robot_state_publisher → TF transforms → RViz2 visualization
+```
+
+**Key RViz2 Displays:**
+- **RobotModel**: Renders robot from URDF with textures and colors
+- **TF**: Shows coordinate frames (RGB axes: X=red, Y=green, Z=blue) for each link
+- **Grid**: Ground plane reference for spatial context
+- **LaserScan**: LiDAR data visualization (for Module 2)
+- **Image**: Camera feed display (for Module 2)
+
+**Launch File for Visualization:**
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+import os
+from ament_index_python.packages import get_package_share_directory
+
+def generate_launch_description():
+    pkg_dir = get_package_share_directory('my_robot_description')
+    urdf_file = os.path.join(pkg_dir, 'urdf', 'robotic_arm.urdf')
+
+    with open(urdf_file, 'r') as file:
+        robot_description = file.read()
+
+    return LaunchDescription([
+        # Publishes TF from URDF + joint states
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            parameters=[{'robot_description': robot_description}]
+        ),
+
+        # GUI to control joint angles with sliders
+        Node(
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui'
+        ),
+
+        # 3D visualization
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            arguments=['-d', 'config/robot.rviz']
+        )
+    ])
+```
+
+**joint_state_publisher_gui** provides sliders for each joint. Moving sliders publishes to `/joint_states` → robot_state_publisher computes forward kinematics → RViz2 renders updated pose. Essential for testing joint limits and debugging URDF.
+
+**TF (Transform) System** tracks coordinate frames over time. Every URDF link becomes a TF frame. Transforms define position (x, y, z) and orientation (quaternion) relative to parent. Critical for sensor fusion, motion planning, and navigation.
+
+**Essential Commands:**
+```bash
+# View TF tree (creates frames.pdf diagram)
+ros2 run tf2_tools view_frames
+
+# Check transform between two frames
+ros2 run tf2_ros tf2_echo base_link link2
+
+# Save RViz2 configuration
+File → Save Config As... → robot.rviz
+```
+
+**RViz2 Camera Controls:**
+- **Orbital** (default): Left-drag rotate, middle-drag pan, scroll zoom
+- **FPS mode**: Shift + WASD to fly, mouse to look around
+
+**Troubleshooting:**
+- **"No transform from [fixed frame]"**: robot_state_publisher not running or URDF not loaded
+- **Robot doesn't appear**: Set RobotModel Description Topic to `/robot_description`
+- **Joints don't move**: Check joint_state_publisher_gui is publishing to `/joint_states`
+
+**Quick Check:**
+- [ ] Can you launch RViz2 with robot_state_publisher and joint_state_publisher_gui?
+- [ ] Can you add and configure RobotModel, TF, and Grid displays?
+- [ ] Can you use joint_state_publisher_gui to animate robot joints?
+- [ ] Can you inspect TF tree with view_frames to verify link relationships?
+
+**Prerequisites for Next Chapter:** RViz2 configured with robot model, understanding of TF transforms, ability to visualize and animate robots, ready for Module 1 mini-project integration.
+
+</TabItem>
+
+</Tabs>

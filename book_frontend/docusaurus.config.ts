@@ -40,7 +40,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          path: '../docs',  // Point to root docs folder
+          path: './docs',  // Use local docs folder
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.

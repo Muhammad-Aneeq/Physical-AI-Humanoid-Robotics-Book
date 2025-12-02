@@ -5,6 +5,13 @@ sidebar_label: "1.5 URDF"
 sidebar_position: 5
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue="content" groupId="chapter-view">
+
+<TabItem value="content" label="Content" default>
+
 # Chapter 1.5: Robot Descriptions with URDF
 
 ## Describing Robots in Code
@@ -978,3 +985,149 @@ In **Chapter 1.6: Visualizing Robots in RViz2**, you'll:
 
 **Chapter Status**: Complete ✅
 **Next Chapter**: [1.6 RViz2](./chapter-1-6-rviz.md)
+
+</TabItem>
+
+<TabItem value="summary" label="Summary">
+
+## Quick Summary
+
+**Learning Objectives Recap:**
+- Understand URDF structure: robot, link, joint XML elements
+- Create robot links with visual, collision, and inertial properties
+- Define joint types (fixed, revolute, continuous, prismatic) with limits
+- Build kinematic tree with parent-child relationships
+- Validate URDF with check_urdf tool
+
+**Core Concepts:**
+
+**URDF (Unified Robot Description Format)** is XML-based format describing robot morphology—geometry, kinematics, dynamics, sensors. Used by RViz2 (visualization), Gazebo (simulation), and controllers (motion planning). Essential for any robot system.
+
+**Three Key Elements:**
+
+**1. Links** (Rigid Bodies) - represent robot parts with three representations:
+- **Visual**: How link looks (meshes, primitives for rendering)
+- **Collision**: Simplified geometry for physics collision detection
+- **Inertial**: Mass and inertia matrix for dynamics simulation
+
+**2. Joints** (Connections) - connect parent/child links:
+- **fixed**: No movement (e.g., camera mounted to body)
+- **revolute**: Rotation around axis with limits (e.g., elbow 0° to 150°)
+- **continuous**: Unlimited rotation (e.g., wheels)
+- **prismatic**: Linear sliding (e.g., elevator platform)
+
+**3. Robot** (Root Element) - contains all links and joints, forms kinematic tree with exactly one root link.
+
+**URDF Structure Example - Two-Link Robotic Arm:**
+
+```xml
+<?xml version="1.0"?>
+<robot name="simple_arm">
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.2 0.2 0.1"/>  <!-- Width x Depth x Height (meters) -->
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>  <!-- R G B A -->
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.2 0.2 0.1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>  <!-- kg -->
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- Link1 (Upper Arm) -->
+  <link name="link1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="0.5"/>  <!-- Radius, Length -->
+      </geometry>
+      <origin xyz="0 0 0.25" rpy="0 0 0"/>  <!-- Center visual at midpoint -->
+      <material name="gray">
+        <color rgba="0.7 0.7 0.7 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.05" length="0.5"/>
+      </geometry>
+      <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Shoulder Joint (connects base_link to link1) -->
+  <joint name="shoulder_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>  <!-- Joint position relative to parent -->
+    <axis xyz="0 1 0"/>  <!-- Rotate around Y-axis -->
+    <limit lower="0" upper="1.57" effort="10" velocity="1.0"/>
+    <!-- lower/upper: joint limits (radians), effort: max torque (Nm), velocity: max speed (rad/s) -->
+  </joint>
+
+</robot>
+```
+
+**Coordinate System:** ROS uses **X=forward, Y=left, Z=up** (right-hand rule). Rotations specified as roll-pitch-yaw (rpy) in radians around X-Y-Z axes.
+
+**Kinematic Tree Rules:**
+1. Exactly one root link (no parent joint)
+2. Every other link has exactly one parent joint
+3. No loops allowed (tree structure, not graph)
+4. Parent link must be defined before child link
+
+**Essential Commands:**
+
+```bash
+# Validate URDF syntax
+check_urdf robot.urdf
+
+# View URDF as graph
+urdf_to_graphiz robot.urdf
+
+# Load in RViz2 (requires robot_state_publisher)
+ros2 launch my_robot_description display.launch.py
+```
+
+**Common Geometry Primitives:**
+- `<box size="x y z"/>` - Rectangular prism
+- `<cylinder radius="r" length="l"/>` - Cylinder
+- `<sphere radius="r"/>` - Sphere
+- `<mesh filename="package://pkg/meshes/file.stl"/>` - 3D mesh file
+
+**Best Practices:**
+1. **Use meaningful names**: `left_wheel` not `link_47`
+2. **Include collision geometry**: Simplified for performance (box > mesh)
+3. **Set realistic inertia**: Use CAD-exported values or online calculators
+4. **Validate early**: Run `check_urdf` before loading in RViz2
+5. **Organize by subsystem**: Group related links/joints with comments
+
+**Troubleshooting:**
+- **"No root link"**: Ensure one link has no parent joint
+- **"Loop detected"**: URDF must be tree, not graph—break loops
+- **"Zero inertia"**: All inertial blocks need mass > 0 and valid inertia matrix
+
+**Quick Check:**
+- [ ] Can you explain the difference between visual, collision, and inertial?
+- [ ] Can you write a URDF with 3+ links and 2+ joints?
+- [ ] Can you choose appropriate joint types for different mechanisms?
+- [ ] Can you validate URDF with check_urdf?
+
+**Prerequisites for Next Chapter:** URDF files created (simple_robot.urdf, robotic_arm.urdf, humanoid.urdf), understanding of links and joints, ready to visualize in RViz2.
+
+</TabItem>
+
+</Tabs>

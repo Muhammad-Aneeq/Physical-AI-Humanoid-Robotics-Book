@@ -24,6 +24,46 @@ Gazebo excels at physics accuracy (gravity, collisions, friction, joint dynamics
 
 **Key Focus**: Physics simulation (Gazebo), world building, sensor models (LiDAR, depth cameras, IMU), ROS 2 integration (ros_gz_bridge), and high-fidelity rendering (Unity).
 
+**NEW FEATURE**: Each of the 8 chapters provides a dual-view interface with Content and Summary tabs, allowing learners to toggle between full chapter content and condensed 1-2 page summaries for quick review and prerequisite refresher.
+
+## User Scenarios & Testing
+
+### User Story 1 - Content/Summary Tab Navigation (Priority: P1)
+
+Learners access each chapter and toggle between full content (default) and condensed summary views to support different learning modes: deep learning (Content tab) and quick review/reference (Summary tab).
+
+**Why this priority**: Core feature enabler - without tab navigation, summary feature cannot function. This is the minimum viable interface that delivers value (quick review capability).
+
+**Independent Test**: Open any chapter, verify Content tab shows by default, click Summary tab and see 300-600 word condensed version, return to Content tab. Verifies tab toggle works independently without requiring other features.
+
+**Acceptance Scenarios**:
+
+1. **Given** learner opens Chapter 2.1 for first time, **When** page loads, **Then** Content tab is active (default) and displays full chapter content with all sections
+2. **Given** learner is viewing Content tab, **When** clicks Summary tab, **Then** Summary tab becomes active and displays condensed 300-600 word summary
+3. **Given** learner is viewing Summary tab, **When** clicks Content tab, **Then** Content tab becomes active and displays full chapter content
+4. **Given** learner selects Summary tab in Chapter 2.1, **When** navigates to Chapter 2.2, **Then** Chapter 2.2 opens with Summary tab active (tab selection persists via groupId)
+5. **Given** learner is viewing Summary tab, **When** using keyboard Tab/Shift+Tab to navigate, **Then** can select between tabs and press Enter/Space to activate selected tab
+6. **Given** learner uses screen reader, **When** encountering tab interface, **Then** screen reader announces tab labels ("Content" and "Summary") with appropriate ARIA roles
+
+---
+
+### User Story 2 - Summary Content for Quick Review (Priority: P1)
+
+Learners use Summary tab to quickly review core concepts (300-600 words) before assessments or when refreshing prerequisites for next chapter, without re-reading full content.
+
+**Why this priority**: Primary value proposition - summaries enable efficient learning review. Testable independently by verifying summary content quality and usefulness.
+
+**Independent Test**: Read Summary tab for any chapter, verify it contains core concepts, essential commands (2-3 code examples), key diagrams, and prerequisites for next chapter in 300-600 words.
+
+**Acceptance Scenarios**:
+
+1. **Given** learner completed Chapter 2.2 week ago, **When** opens Summary tab before Chapter 2.3, **Then** sees 500-550 word summary with world building concepts, minimal SDF example (10 lines), essential Gazebo commands, and key commands
+2. **Given** learner reviewing for Module 2 assessment, **When** opens Chapter 2.3 Summary tab, **Then** sees 550-600 word summary with sensor types (LiDAR, camera, IMU), minimal plugin code, and sensor data visualization
+3. **Given** learner needs quick reference for Gazebo commands, **When** opens Chapter 2.1 Summary tab, **Then** sees essential commands (gz sim, gz model, gz topic) with brief descriptions
+4. **Given** learner preparing for next chapter, **When** reads Summary tab "Prerequisites for Next Chapter" section, **Then** understands what concepts to remember and what tools to have set up
+
+---
+
 ## Learning Journeys
 
 ### Learning Journey 1: Physics Simulation with Gazebo (Priority: P1)

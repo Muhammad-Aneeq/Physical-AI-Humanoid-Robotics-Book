@@ -5,6 +5,13 @@ sidebar_label: "1.1 Introduction"
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue="content" groupId="chapter-view">
+
+<TabItem value="content" label="Content" default>
+
 # Chapter 1.1: Introduction to ROS 2 and Physical AI
 
 ## Welcome to Physical AI and Robotics!
@@ -524,3 +531,53 @@ In **Chapter 1.2: Your First ROS 2 Node - Publishers & Subscribers**, you'll:
 
 **Chapter Status**: Complete ✅
 **Next Chapter**: [1.2 Publishers & Subscribers](./chapter-1-2-pubsub.md)
+
+</TabItem>
+
+<TabItem value="summary" label="Summary">
+
+## Quick Summary
+
+**Learning Objectives Recap:**
+- Define ROS 2, nodes, topics, messages, Physical AI, and middleware
+- Explain why Physical AI systems require middleware for coordination
+- Compare ROS 1 vs ROS 2 architecture differences
+- Install ROS 2 Humble and run your first robot simulation
+
+**Core Concepts:**
+
+**Physical AI** is artificial intelligence embodied in physical robots that interact with the real world. Unlike digital AI operating in virtual environments, Physical AI must handle real-time constraints, sensor noise, physical forces, and environmental uncertainty. Examples include humanoid robots (Boston Dynamics Atlas, Tesla Optimus), autonomous vehicles (Waymo), industrial automation, and home robots (Roomba).
+
+**Middleware** is software that sits between the operating system and applications, providing essential services for distributed robotics systems. Modern robots are distributed systems with dozens of independent processes—camera drivers, AI models, navigation algorithms, motor controllers—all running simultaneously. Middleware like ROS 2 standardizes message passing, node discovery, data serialization, and quality of service guarantees.
+
+**ROS 2 Graph Model** organizes computation into nodes communicating via topics. A **node** is an independent process performing a specific task. A **topic** is a named channel for asynchronous communication. **Publishers** send messages to topics; **subscribers** receive them. This publish-subscribe architecture decouples components—nodes don't need to know who's listening, enabling scalable, modular systems.
+
+**ROS 1 vs ROS 2:** ROS 1 used a centralized rosmaster (single point of failure, no real-time guarantees, Linux-only). ROS 2 uses **DDS (Data Distribution Service)**, a peer-to-peer middleware from aerospace industries. Key advantages: no single point of failure, real-time capable, encrypted security, cross-platform support (Linux, Windows, macOS), and native multi-robot systems.
+
+**Essential Commands:**
+```bash
+# Source ROS 2 environment (add to ~/.bashrc)
+source /opt/ros/humble/setup.bash
+
+# Launch TurtleSim demo
+ros2 run turtlesim turtlesim_node
+ros2 run turtlesim turtle_teleop_key
+
+# Inspect the ROS 2 graph
+ros2 node list                    # List active nodes
+ros2 topic list                   # List active topics
+ros2 topic echo /turtle1/pose     # View live messages
+rqt_graph                         # Visualize graph
+```
+
+**Quick Check:**
+- [ ] Can you explain why robotics needs middleware?
+- [ ] Can you describe the ROS 2 graph model (nodes, topics, pub/sub)?
+- [ ] Can you list the differences between ROS 1 and ROS 2?
+- [ ] Have you successfully installed ROS 2 Humble and run TurtleSim?
+
+**Prerequisites for Next Chapter:** ROS 2 Humble installed, basic understanding of nodes and topics, ability to run ros2 commands in terminal.
+
+</TabItem>
+
+</Tabs>

@@ -17,8 +17,8 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 ## Path Conventions
 
-- **Educational Content**: `docs/module-2/` (chapter markdown files)
-- **Assets**: `docs/assets/module-2/` (code examples, diagrams, images)
+- **Educational Content**: `book_frontend/docs/module-2/` (chapter markdown files)
+- **Assets**: `book_frontend/docs/assets/module-2/` (code examples, diagrams, images)
 - **Documentation**: `specs/002-module-2-gazebo-unity/` (research, data model, contracts)
 - **Tests**: `tests/content/` and `tests/code_examples/`
 
@@ -28,10 +28,10 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 **Purpose**: Initialize module structure and configuration
 
-- [ ] T001 Create module directory structure at docs/module-2/
-- [ ] T002 Create assets directory structure at docs/assets/module-2/ with subdirs (code/, diagrams/, images/)
+- [ ] T001 Create module directory structure at book_frontend/docs/module-2/
+- [ ] T002 Create assets directory structure at book_frontend/docs/assets/module-2/ with subdirs (code/, diagrams/, images/)
 - [ ] T003 [P] Create _category_.json for Docusaurus sidebar configuration
-- [ ] T004 [P] Create module index file at docs/module-2/index.md
+- [ ] T004 [P] Create module index file at book_frontend/docs/module-2/index.md
 - [ ] T005 [P] Create test directory structure at tests/content/ and tests/code_examples/
 
 ---
@@ -49,8 +49,8 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 - [ ] T010 [P] Create contracts/chapter-2-3-lidar-plugin-example.md for LiDAR sensor integration
 - [ ] T011 [P] Create contracts/chapter-2-5-ros-gz-bridge-config.md for topic bridging example
 - [ ] T012 [P] Create contracts/chapter-2-6-obstacle-avoidance.md for closed-loop control example
-- [ ] T013 [P] Create reusable partial at docs/_partials/gazebo-install.md for installation instructions
-- [ ] T014 [P] Create reusable partial at docs/_partials/troubleshooting-common-errors.md for Gazebo/ROS 2 issues
+- [ ] T013 [P] Create reusable partial at book_frontend/docs/_partials/gazebo-install.md for installation instructions
+- [ ] T014 [P] Create reusable partial at book_frontend/docs/_partials/troubleshooting-common-errors.md for Gazebo/ROS 2 issues
 
 **Checkpoint**: Foundation documents ready - learning journey content implementation can now begin in parallel
 
@@ -74,7 +74,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 - [ ] T020 [LJ1] Write chapter-2-2-spawning-robots.md covering URDF to Gazebo workflow
 - [ ] T021 [LJ1] Add learning objectives (Apply: spawn URDF in Gazebo, Analyze: compare URDF vs SDF)
-- [ ] T022 [P] [LJ1] Create code example at docs/assets/module-2/code/chapter-2-2/simple_robot.urdf
+- [ ] T022 [P] [LJ1] Create code example at book_frontend/docs/assets/module-2/code/chapter-2-2/simple_robot.urdf
 - [ ] T023 [P] [LJ1] Create spawn_robot.launch.py launch file example
 - [ ] T024 [P] [LJ1] Create urdf-to-gazebo-flow.svg diagram showing spawning workflow
 - [ ] T025 [LJ1] Add guided walkthrough: Spawn wheeled robot from Module 1, observe in Gazebo
@@ -86,7 +86,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 - [ ] T029 [LJ1] Write chapter-2-4-building-worlds.md covering SDF world files, obstacles, slopes
 - [ ] T030 [LJ1] Add learning objectives (Create: build warehouse world with obstacles)
-- [ ] T031 [P] [LJ1] Create code example at docs/assets/module-2/code/chapter-2-4/warehouse_world.sdf
+- [ ] T031 [P] [LJ1] Create code example at book_frontend/docs/assets/module-2/code/chapter-2-4/warehouse_world.sdf
 - [ ] T032 [P] [LJ1] Create world-with-obstacles.svg diagram showing collision detection concept
 - [ ] T033 [LJ1] Add guided walkthrough: Create empty world, add box obstacles, spawn robot
 - [ ] T034 [LJ1] Add exercise 1: Create world with slope, observe robot behavior on incline
@@ -98,7 +98,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 - [ ] T037 [P] [LJ1] Create physics-forces-diagram.svg showing F=ma with different robot masses
 - [ ] T038 [P] [LJ1] Create screenshot gazebo-empty-world.webp for Chapter 2.1
 - [ ] T039 [P] [LJ1] Create screenshot robot-collision-demo.webp for Chapter 2.4
-- [ ] T040 [P] [LJ1] Create humanoid URDF example at docs/assets/module-2/code/chapter-2-2/humanoid_simple.urdf
+- [ ] T040 [P] [LJ1] Create humanoid URDF example at book_frontend/docs/assets/module-2/code/chapter-2-2/humanoid_simple.urdf
 - [ ] T041 [P] [LJ1] Create code validation test at tests/code_examples/test_chapter_2_2_urdf.py
 
 **Checkpoint**: Learning Journey 1 complete - learners can spawn robots, apply forces, observe physics
@@ -115,7 +115,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 - [ ] T042 [LJ2] Write chapter-2-3-gazebo-plugins.md covering sensor plugins (LiDAR, cameras, IMU)
 - [ ] T043 [LJ2] Add learning objectives (Apply: attach LiDAR plugin, Create: custom sensor configuration)
-- [ ] T044 [P] [LJ2] Create code example at docs/assets/module-2/code/chapter-2-3/robot_with_lidar.urdf
+- [ ] T044 [P] [LJ2] Create code example at book_frontend/docs/assets/module-2/code/chapter-2-3/robot_with_lidar.urdf
 - [ ] T045 [P] [LJ2] Create lidar_subscriber.py ROS 2 node example
 - [ ] T046 [P] [LJ2] Create sensor-plugin-lifecycle.svg diagram showing plugin initialization and data flow
 - [ ] T047 [LJ2] Add LiDAR section: 2D laser scanner plugin, `/scan` topic, LaserScan message type
@@ -174,7 +174,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 - [ ] T081 [P] [LJ3] Create sense-plan-act-loop.svg diagram showing closed-loop architecture
 - [ ] T082 [LJ3] Add closed-loop concept: Read sensors → make decisions → command actuators
 - [ ] T083 [LJ3] Add guided walkthrough: Integrate LiDAR subscriber with cmd_vel publisher
-- [ ] T084 [P] [LJ3] Create obstacle_avoidance.py complete example at docs/assets/module-2/code/chapter-2-6/
+- [ ] T084 [P] [LJ3] Create obstacle_avoidance.py complete example at book_frontend/docs/assets/module-2/code/chapter-2-6/
 - [ ] T085 [P] [LJ3] Create obstacle_avoidance_launch.py that starts Gazebo, robot, bridge, and control node
 - [ ] T086 [LJ3] Add exercise 1: Test obstacle avoidance in warehouse world from Chapter 2.4
 - [ ] T087 [LJ3] Add exercise 2: Modify control logic to turn left/right based on scan sectors
@@ -228,7 +228,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 
 ### Documentation & Index
 
-- [ ] T110 [P] Write comprehensive module index at docs/module-2/index.md with overview, prerequisites, learning goals
+- [ ] T110 [P] Write comprehensive module index at book_frontend/docs/module-2/index.md with overview, prerequisites, learning goals
 - [ ] T111 [P] Add module navigation links to all chapter files (Previous/Next chapter)
 - [ ] T112 [P] Create module summary in index: What learners will achieve, time estimate (12 hours)
 - [ ] T113 [P] Add "How to use this module" section with recommended sequence and optional paths
@@ -238,7 +238,7 @@ description: "Task list for Module 2: The Digital Twin (Gazebo & Unity)"
 - [ ] T114 [P] Create test_markdown_lint.py to validate CommonMark syntax with Vale
 - [ ] T115 [P] Create test_links.py to check all internal and external links
 - [ ] T116 [P] Create test_accessibility.py to verify WCAG 2.1 AA compliance (alt text, headings, contrast)
-- [ ] T117 Run Vale linting on all chapter markdown files (docs/module-2/*.md)
+- [ ] T117 Run Vale linting on all chapter markdown files (book_frontend/docs/module-2/*.md)
 - [ ] T118 Run markdown-link-check on all chapter files
 - [ ] T119 Verify all images have descriptive alt text (<200KB file size)
 - [ ] T120 Validate all code examples are syntactically correct (Python, bash, URDF, SDF)

@@ -2,46 +2,65 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Preface: Welcome to Physical AI & Humanoid Robotics
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Learn to build intelligent robots with ROS 2, from fundamentals to advanced AI integration.
+
+## What You'll Learn
+
+This comprehensive guide covers:
+
+### 🤖 **Module 1: The Robotic Nervous System (ROS 2)**
+- ROS 2 fundamentals (nodes, topics, services)
+- Robot descriptions with URDF
+- Visualization with RViz2
+
+### 🌍 **Module 2: Gazebo Simulation**
+- Physics-based robot simulation
+- Sensor simulation
+- Environment modeling
+
+### 🚀 **Module 3: Isaac Sim & Advanced Simulation**
+- NVIDIA Isaac Sim for photorealistic simulation
+- Advanced perception and navigation
+- GPU-accelerated robotics
+
+### 🧠 **Module 4: Vision-Language-Action (VLA)**
+- Speech-to-text with OpenAI Whisper
+- LLM-based task planning (GPT-4/Claude)
+- Visual grounding with CLIP
+- End-to-end embodied AI
+
+### 🏆 **Module 5: Capstone Project**
+- Build a complete autonomous robot
+- Integrate all modules
+- Deploy in simulation
+
+---
 
 ## Getting Started
 
-Get started by **creating a new site**.
+👉 **Start with [Module 4: Vision-Language-Action](./module-4/index.md)** (currently available)
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+More modules coming soon!
 
-### What you'll need
+---
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Prerequisites
 
-## Generate a new site
+- Basic programming knowledge (Python preferred)
+- Linux/Ubuntu familiarity (or WSL2 on Windows)
+- No prior robotics experience required!
 
-Generate a new Docusaurus site using the **classic template**.
+---
 
-The classic template will automatically be added to your project after you run the command:
+## About This Course
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+This book teaches you to build **Physical AI** systems - robots that combine:
+- **Perception** (cameras, sensors)
+- **Cognition** (LLMs, planning)
+- **Action** (navigation, manipulation)
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+You'll learn by building, with hands-on examples using ROS 2 and modern AI tools.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+**Ready to start?** Choose a module from the sidebar! 🚀

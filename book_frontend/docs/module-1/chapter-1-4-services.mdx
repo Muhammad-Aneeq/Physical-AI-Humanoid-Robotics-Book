@@ -5,6 +5,13 @@ sidebar_label: "1.4 Services"
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue="content" groupId="chapter-view">
+
+<TabItem value="content" label="Content" default>
+
 # Chapter 1.4: Services and Request-Response Patterns
 
 ## When Topics Aren't Enough
@@ -775,3 +782,120 @@ In **Chapter 1.5: Robot Descriptions with URDF**, you'll:
 
 **Chapter Status**: Complete ✅
 **Next Chapter**: [1.5 URDF](./chapter-1-5-urdf.md)
+
+</TabItem>
+
+<TabItem value="summary" label="Summary">
+
+## Quick Summary
+
+**Learning Objectives Recap:**
+- Compare topics vs services (asynchronous vs synchronous, many-to-many vs one-to-one)
+- Create service servers responding to client requests with custom .srv types
+- Call services from Python client nodes and CLI
+- Evaluate scenarios to determine when to use topics vs services
+
+**Core Concepts:**
+
+**Services** provide synchronous request-response communication—clients send requests and block waiting for server responses. Unlike topics (one-to-many, async, streaming), services are one-to-one, synchronous, and on-demand.
+
+**Topics vs Services Decision Matrix:**
+- ✅ **Topics**: High-frequency streaming (camera 30fps, LiDAR scans), real-time sensor data, many subscribers needed, fire-and-forget
+- ✅ **Services**: One-time queries ("What's battery level?"), commands needing confirmation ("Reset odometry"), computed results ("Calculate path"), exactly one server required
+
+**Service Definition Files (.srv)** define request-response structure with `---` separator:
+```
+# AddTwoInts.srv
+int64 a    # Request: first number
+int64 b    # Request: second number
+---
+int64 sum  # Response: result
+```
+
+**Creating Service Server:**
+
+```python
+from custom_msgs.srv import AddTwoInts
+
+class AddTwoIntsServer(Node):
+    def __init__(self):
+        super().__init__('add_two_ints_server')
+        self.service_ = self.create_service(
+            AddTwoInts,
+            '/add_two_ints',
+            self.add_callback
+        )
+
+    def add_callback(self, request, response):
+        # Compute result
+        response.sum = request.a + request.b
+        self.get_logger().info(
+            f'{request.a} + {request.b} = {response.sum}')
+        return response  # Must return response object
+```
+
+**Key elements**: `create_service(type, name, callback)` registers server, callback receives `request` and `response` objects, **must return response**.
+
+**Creating Service Client:**
+
+```python
+from custom_msgs.srv import AddTwoInts
+
+class AddTwoIntsClient(Node):
+    def __init__(self):
+        super().__init__('add_two_ints_client')
+        self.client_ = self.create_client(AddTwoInts, '/add_two_ints')
+
+        # Wait for service to be available
+        while not self.client_.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Waiting for service...')
+
+    def send_request(self, a, b):
+        request = AddTwoInts.Request()
+        request.a = a
+        request.b = b
+
+        # Send request (returns Future)
+        future = self.client_.call_async(request)
+        rclpy.spin_until_future_complete(self, future)
+
+        # Get response
+        return future.result()
+```
+
+**Calling from CLI:**
+```bash
+# List services
+ros2 service list
+
+# Get service type
+ros2 service type /add_two_ints
+
+# Call service from command line
+ros2 service call /add_two_ints custom_msgs/srv/AddTwoInts "{a: 5, b: 3}"
+```
+
+**Service File Generation** (add to CMakeLists.txt):
+```cmake
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/AddTwoInts.srv"
+)
+```
+
+**Best Practices:**
+1. **Validation**: Check request parameters (ranges, IDs, permissions) before processing
+2. **Error handling**: Use bool success + string message fields in response
+3. **Timeouts**: Set reasonable timeout_sec in wait_for_service()
+4. **Naming**: Use descriptive service names (`/reset_odometry`, not `/reset`)
+
+**Quick Check:**
+- [ ] Can you explain when to use services vs topics?
+- [ ] Can you write a .srv file with request and response sections?
+- [ ] Can you create a service server that validates input?
+- [ ] Can you call services from both Python clients and CLI?
+
+**Prerequisites for Next Chapter:** Understanding of ROS 2 communication patterns (topics and services), ready to learn robot physical descriptions with URDF.
+
+</TabItem>
+
+</Tabs>
