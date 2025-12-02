@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["004-module-4-vla"]
+    paths:
+      - "book_frontend/**"
+      # Exclude docs/ since those trigger via sync-content workflow
+      - "!book_frontend/docs/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
