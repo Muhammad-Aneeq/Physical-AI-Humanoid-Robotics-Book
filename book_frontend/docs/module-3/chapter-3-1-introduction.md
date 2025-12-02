@@ -436,7 +436,7 @@ In **Chapter 3.2: Building Photorealistic Environments**, you'll:
 - Add lighting (HDR skies, area lights, spotlights)
 - Import CAD models from industrial design tools
 
-**Continue to** → [Chapter 3.2: Photorealistic Environments](./chapter-3-2-environments.md)
+**Continue to** → [Chapter 3.2: Photorealistic Environments](./chapter-3-2-environments)
 
 ---
 
@@ -483,4 +483,4 @@ In **Chapter 3.2: Building Photorealistic Environments**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [3.2 Building Photorealistic Environments](./chapter-3-2-environments.md)
+**Next Chapter**: [3.2 Building Photorealistic Environments](./chapter-3-2-environments)

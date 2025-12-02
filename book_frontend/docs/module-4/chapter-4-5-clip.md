@@ -406,4 +406,4 @@ You learned:
 
 In **Chapter 4.6**, we'll add **3D pose estimation** to convert 2D bounding boxes into 3D positions (x, y, z) using depth cameras.
 
-**🎯 Next Chapter**: [4.6 3D Pose Estimation](./chapter-4-6-pose.md)
+**🎯 Next Chapter**: [4.6 3D Pose Estimation](./chapter-4-6-pose)

@@ -40,7 +40,7 @@ This comprehensive guide covers:
 
 ## Getting Started
 
-👉 **Start with [Module 4: Vision-Language-Action](./module-4/index.md)** (currently available)
+👉 **Start with [Module 4: Vision-Language-Action](./module-module-4/** (currently available)
 
 More modules coming soon!
 

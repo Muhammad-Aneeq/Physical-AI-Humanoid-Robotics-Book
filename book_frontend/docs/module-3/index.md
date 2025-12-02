@@ -96,10 +96,10 @@ By the end of this module, you will:
 
 ## Quick Start
 
-**Ready for advanced simulation?** Start with [Chapter 3.1: Introduction to Isaac Sim](./chapter-3-1-introduction.md)
+**Ready for advanced simulation?** Start with [Chapter 3.1: Introduction to Isaac Sim](./chapter-3-1-introduction)
 
 ---
 
 **Estimated Time**: 10 hours
 **Difficulty**: Advanced (requires Module 1, GPU recommended)
-**Next Module**: [Module 4: Vision-Language-Action](../module-4/index.md)
+**Next Module**: [Module 4: Vision-Language-Action](../module-module-4/

@@ -513,7 +513,7 @@ In **Chapter 3.3: Advanced Sensor Simulation**, you'll:
 - Create ground-truth sensor data for AI training
 - Leverage Isaac Sim's Replicator for domain randomization
 
-**Continue to** → [Chapter 3.3: Advanced Sensor Simulation](./chapter-3-3-sensors.md)
+**Continue to** → [Chapter 3.3: Advanced Sensor Simulation](./chapter-3-3-sensors)
 
 ---
 
@@ -578,4 +578,4 @@ In **Chapter 3.3: Advanced Sensor Simulation**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [3.3 Advanced Sensor Simulation](./chapter-3-3-sensors.md)
+**Next Chapter**: [3.3 Advanced Sensor Simulation](./chapter-3-3-sensors)

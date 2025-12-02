@@ -785,7 +785,7 @@ In **Chapter 2.3: Simulating Sensors**, you'll:
 - Visualize sensor data in RViz2
 - Process sensor data in ROS 2 nodes
 
-**Continue to** → [Chapter 2.3: Simulating Sensors](./chapter-2-3-sensors.md)
+**Continue to** → [Chapter 2.3: Simulating Sensors](./chapter-2-3-sensors)
 
 ---
 
@@ -830,4 +830,4 @@ In **Chapter 2.3: Simulating Sensors**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [2.3 Simulating Sensors](./chapter-2-3-sensors.md)
+**Next Chapter**: [2.3 Simulating Sensors](./chapter-2-3-sensors)

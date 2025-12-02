@@ -721,4 +721,4 @@ You'll learn:
 ---
 
 **⏱️ Estimated Chapter Time**: 2 hours (reading, coding, testing)
-**🎯 Next Chapter**: [4.4 LLMs for Cognitive Planning](./chapter-4-4-llm-planning.md)
+**🎯 Next Chapter**: [4.4 LLMs for Cognitive Planning](./chapter-4-4-llm-planning)

@@ -101,15 +101,15 @@ By the end of this module, you will:
 
 ## Quick Start
 
-**Ready to begin?** Start with [Chapter 1.1: Introduction to ROS 2](./chapter-1-1-introduction.md)
+**Ready to begin?** Start with [Chapter 1.1: Introduction to ROS 2](./chapter-1-1-introduction)
 
 Or jump to a specific topic:
-- [📡 Chapter 1.2: Publishers & Subscribers](./chapter-1-2-pubsub.md)
-- [🤖 Chapter 1.5: URDF Robot Modeling](./chapter-1-5-urdf.md)
-- [👁️ Chapter 1.6: RViz2 Visualization](./chapter-1-6-rviz.md)
+- [📡 Chapter 1.2: Publishers & Subscribers](./chapter-1-2-pubsub)
+- [🤖 Chapter 1.5: URDF Robot Modeling](./chapter-1-5-urdf)
+- [👁️ Chapter 1.6: RViz2 Visualization](./chapter-1-6-rviz)
 
 ---
 
 **Estimated Time**: 12 hours total
 **Difficulty**: Beginner (no robotics background needed)
-**Next Module**: [Module 2: Gazebo Simulation](../module-2/index.md)
+**Next Module**: [Module 2: Gazebo Simulation](../module-2/)

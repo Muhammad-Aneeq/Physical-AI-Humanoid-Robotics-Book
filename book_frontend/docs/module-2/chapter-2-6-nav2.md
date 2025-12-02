@@ -990,4 +990,4 @@ Nav2 uses **Behavior Trees (BT)** to orchestrate navigation logic.
 
 **Chapter Status**: Complete ✅
 **Module 2 Status**: Complete ✅ 🎉
-**Next Module**: [Module 3: Advanced Manipulation & MoveIt2](../module-3/chapter-3-1-intro.md)
+**Next Module**: [Module 3: Advanced Manipulation & MoveIt2](../module-3/chapter-3-1-introduction)

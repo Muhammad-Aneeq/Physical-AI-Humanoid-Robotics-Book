@@ -795,4 +795,4 @@ You'll learn:
 ---
 
 **⏱️ Estimated Chapter Time**: 2.5 hours (reading, coding, exercises)
-**🎯 Next Chapter**: [4.3 Wake-Word Detection](./chapter-4-3-wake-word.md)
+**🎯 Next Chapter**: [4.3 Wake-Word Detection](./chapter-4-3-wake-word)

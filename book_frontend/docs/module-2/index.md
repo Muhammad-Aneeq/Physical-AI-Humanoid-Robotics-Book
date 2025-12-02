@@ -89,10 +89,10 @@ By the end of this module, you will:
 
 ## Quick Start
 
-**Ready to simulate?** Start with [Chapter 2.1: Introduction to Gazebo](./chapter-2-1-introduction.md)
+**Ready to simulate?** Start with [Chapter 2.1: Introduction to Gazebo](./chapter-2-1-introduction)
 
 ---
 
 **Estimated Time**: 10 hours
 **Difficulty**: Intermediate (requires Module 1)
-**Next Module**: [Module 3: NVIDIA Isaac Sim](../module-3/index.md)
+**Next Module**: [Module 3: NVIDIA Isaac Sim](../module-module-3/

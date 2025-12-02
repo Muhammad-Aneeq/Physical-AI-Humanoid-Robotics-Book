@@ -572,7 +572,7 @@ In **Chapter 3.5: Reinforcement Learning with Isaac Gym**, you'll:
 - Implement domain randomization for robust controllers
 - Deploy RL policies from simulation to real hardware
 
-**Continue to** → [Chapter 3.5: Reinforcement Learning](./chapter-3-5-reinforcement-learning.md)
+**Continue to** → [Chapter 3.5: Reinforcement Learning](./chapter-3-5-reinforcement-learning)
 
 ---
 
@@ -638,4 +638,4 @@ In **Chapter 3.5: Reinforcement Learning with Isaac Gym**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [3.5 Reinforcement Learning](./chapter-3-5-reinforcement-learning.md)
+**Next Chapter**: [3.5 Reinforcement Learning](./chapter-3-5-reinforcement-learning)

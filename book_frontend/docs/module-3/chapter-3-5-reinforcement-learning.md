@@ -68,16 +68,16 @@ By the end of this chapter, you'll have:
 ### Markov Decision Process (MDP)
 
 **Formalization**:
-- At timestep t, agent in state s_t
-- Takes action a_t ~ π(s_t)
-- Environment transitions to s_{t+1} with probability P(s_{t+1} | s_t, a_t)
-- Receives reward r_t = R(s_t, a_t)
+- At timestep t, agent in state `s_t`
+- Takes action `a_t ~ π(s_t)`
+- Environment transitions to `s_{t+1}` with probability `P(s_{t+1} | s_t, a_t)`
+- Receives reward `r_t = R(s_t, a_t)`
 
 **Objective**: Maximize return (discounted sum of rewards):
 ```
 G_t = r_t + γ r_{t+1} + γ² r_{t+2} + ...
 ```
-Where γ ∈ [0, 1] is discount factor (0.99 typical).
+Where `γ ∈ [0, 1]` is discount factor (0.99 typical).
 
 ### Policy Gradient Methods
 
@@ -654,7 +654,7 @@ In **Chapter 3.6: Deployment to Real Robots**, you'll:
 - Measure real-world performance vs. simulation
 - Iterate on design with hardware-in-the-loop testing
 
-**Continue to** → [Chapter 3.6: Deployment to Real Robots](./chapter-3-6-deployment.md)
+**Continue to** → [Chapter 3.6: Deployment to Real Robots](./chapter-3-6-deployment)
 
 ---
 
@@ -732,4 +732,4 @@ In **Chapter 3.6: Deployment to Real Robots**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [3.6 Deployment to Real Robots](./chapter-3-6-deployment.md)
+**Next Chapter**: [3.6 Deployment to Real Robots](./chapter-3-6-deployment)

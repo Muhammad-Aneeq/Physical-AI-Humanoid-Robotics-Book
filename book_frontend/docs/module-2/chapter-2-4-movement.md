@@ -785,7 +785,7 @@ In **Chapter 2.5: Simultaneous Localization and Mapping (SLAM)**, you'll:
 - Localize robot in known maps
 - Save and load maps for navigation
 
-**Continue to** → [Chapter 2.5: SLAM Mapping](./chapter-2-5-slam.md)
+**Continue to** → [Chapter 2.5: SLAM Mapping](./chapter-2-5-slam)
 
 ---
 
@@ -850,4 +850,4 @@ In **Chapter 2.5: Simultaneous Localization and Mapping (SLAM)**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [2.5 SLAM Mapping](./chapter-2-5-slam.md)
+**Next Chapter**: [2.5 SLAM Mapping](./chapter-2-5-slam)

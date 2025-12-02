@@ -614,7 +614,7 @@ In **Chapter 3.4: Synthetic Data for Computer Vision**, you'll:
 - Evaluate sim-to-real transfer performance
 - Create production-ready training pipelines
 
-**Continue to** → [Chapter 3.4: Synthetic Data Generation](./chapter-3-4-synthetic-data.md)
+**Continue to** → [Chapter 3.4: Synthetic Data Generation](./chapter-3-4-synthetic-data)
 
 ---
 
@@ -680,4 +680,4 @@ In **Chapter 3.4: Synthetic Data for Computer Vision**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [3.4 Synthetic Data Generation](./chapter-3-4-synthetic-data.md)
+**Next Chapter**: [3.4 Synthetic Data Generation](./chapter-3-4-synthetic-data)

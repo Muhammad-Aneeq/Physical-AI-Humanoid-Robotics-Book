@@ -395,4 +395,4 @@ You learned:
 
 In **Chapter 4.8**, we'll add **error recovery** to handle failures like objects not found, navigation blocked, or transcription errors.
 
-**🎯 Next Chapter**: [4.8 Error Recovery and Robustness](./chapter-4-8-recovery.md)
+**🎯 Next Chapter**: [4.8 Error Recovery and Robustness](./chapter-4-8-recovery)

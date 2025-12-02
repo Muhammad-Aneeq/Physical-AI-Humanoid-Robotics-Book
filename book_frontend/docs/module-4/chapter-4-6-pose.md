@@ -359,4 +359,4 @@ You learned:
 
 In **Chapter 4.7**, we'll integrate all components using **state machines** for robust orchestration with error handling.
 
-**🎯 Next Chapter**: [4.7 VLA Pipeline Integration](./chapter-4-7-integration.md)
+**🎯 Next Chapter**: [4.7 VLA Pipeline Integration](./chapter-4-7-integration)

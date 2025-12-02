@@ -291,7 +291,7 @@ You'll need **one** of these combinations:
 - Cost: ~$5-10 for full module
 
 :::tip API Keys Setup
-See the [API Keys Setup Guide](../../_partials/api-keys-setup.md) for step-by-step instructions on creating accounts, generating keys, and securing them in `.env` files.
+See the [API Keys Setup Guide](../partials/api-keys-setup) for step-by-step instructions on creating accounts, generating keys, and securing them in `.env` files.
 :::
 
 ### ✅ Hardware Requirements
@@ -309,9 +309,9 @@ See the [API Keys Setup Guide](../../_partials/api-keys-setup.md) for step-by-st
 
 ### ✅ Software Setup
 
-Run through the **[Module 4 Quickstart Guide](../../../specs/004-module-4-vla/quickstart.md)** to:
+Follow these steps to set up your environment:
 - Install Python dependencies (`openai`, `anthropic`, `clip`, `sounddevice`, etc.)
-- Configure `.env` file with API keys
+- Configure `.env` file with API keys (see API Keys Setup Guide below)
 - Test microphone and APIs
 - Verify simulation environment
 
@@ -376,7 +376,7 @@ User: "Get the red box."
 Before building VLA systems, it's critical to understand responsible AI development:
 
 :::warning Important: LLM Safety
-Large language models can make mistakes, hallucinate plans, or misinterpret commands. **Always validate LLM outputs** before executing physical actions. See the [LLM Safety Guidelines](../../_partials/llm-safety-guidelines.md) for best practices.
+Large language models can make mistakes, hallucinate plans, or misinterpret commands. **Always validate LLM outputs** before executing physical actions. See the [LLM Safety Guidelines](../partials/llm-safety-guidelines) for best practices.
 :::
 
 **Key Safety Principles**:
@@ -426,4 +426,4 @@ In **Chapter 4.2**, you'll:
 ---
 
 **⏱️ Estimated Chapter Time**: 1 hour (reading + concept review)
-**🎯 Next Chapter**: [4.2 Speech-to-Text with Whisper](./chapter-4-2-speech-to-text.md)
+**🎯 Next Chapter**: [4.2 Speech-to-Text with Whisper](./chapter-4-2-speech-to-text)

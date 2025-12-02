@@ -767,7 +767,7 @@ In **Chapter 2.4: Robot Movement in Simulation**, you'll:
 - Use teleop for keyboard control
 - Simulate realistic physics (friction, inertia)
 
-**Continue to** → [Chapter 2.4: Robot Movement](./chapter-2-4-movement.md)
+**Continue to** → [Chapter 2.4: Robot Movement](./chapter-2-4-movement)
 
 ---
 
@@ -830,4 +830,4 @@ In **Chapter 2.4: Robot Movement in Simulation**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [2.4 Robot Movement](./chapter-2-4-movement.md)
+**Next Chapter**: [2.4 Robot Movement](./chapter-2-4-movement)

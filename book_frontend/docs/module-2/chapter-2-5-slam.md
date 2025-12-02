@@ -646,7 +646,7 @@ In **Chapter 2.6: Autonomous Navigation with Nav2**, you'll:
 - Add obstacle avoidance and recovery behaviors
 - Build fully autonomous mobile robot
 
-**Continue to** → [Chapter 2.6: Nav2 Navigation](./chapter-2-6-nav2.md)
+**Continue to** → [Chapter 2.6: Nav2 Navigation](./chapter-2-6-nav2)
 
 ---
 
@@ -716,4 +716,4 @@ In **Chapter 2.6: Autonomous Navigation with Nav2**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [2.6 Nav2 Navigation](./chapter-2-6-nav2.md)
+**Next Chapter**: [2.6 Nav2 Navigation](./chapter-2-6-nav2)

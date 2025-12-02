@@ -830,4 +830,4 @@ You'll learn:
 ---
 
 **⏱️ Estimated Chapter Time**: 3 hours (reading, coding, prompt tuning)
-**🎯 Next Chapter**: [4.5 Visual Grounding with CLIP](./chapter-4-5-clip.md)
+**🎯 Next Chapter**: [4.5 Visual Grounding with CLIP](./chapter-4-5-clip)

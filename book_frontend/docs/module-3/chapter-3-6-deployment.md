@@ -711,4 +711,4 @@ def smooth_action(action):
 
 **Chapter Status**: Complete ✅
 **Module 3 Status**: Complete ✅ 🎉
-**Next Module**: [Module 4: Vision-Language-Action Models](../module-4/index.md)
+**Next Module**: [Module 4: Vision-Language-Action Models](../module-module-4/

@@ -467,4 +467,4 @@ You learned:
 
 In **Chapter 4.9**, you'll apply everything in a **Mini-Project**: Build a voice-controlled humanoid assistant that completes fetch-and-deliver tasks in a simulated home environment.
 
-**🎯 Next Chapter**: [4.9 Mini-Project: Voice-Controlled Humanoid Assistant](./chapter-4-9-project.md)
+**🎯 Next Chapter**: [4.9 Mini-Project: Voice-Controlled Humanoid Assistant](./chapter-4-9-project)

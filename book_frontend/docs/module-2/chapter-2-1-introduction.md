@@ -526,7 +526,7 @@ In **Chapter 2.2: Creating Custom Worlds**, you'll:
 - Add lighting, textures, and environmental effects
 - Create realistic testing environments for your robots
 
-**Continue to** → [Chapter 2.2: Creating Custom Worlds](./chapter-2-2-worlds.md)
+**Continue to** → [Chapter 2.2: Creating Custom Worlds](./chapter-2-2-worlds)
 
 ---
 
@@ -566,4 +566,4 @@ In **Chapter 2.2: Creating Custom Worlds**, you'll:
 ---
 
 **Chapter Status**: Complete ✅
-**Next Chapter**: [2.2 Creating Custom Worlds](./chapter-2-2-worlds.md)
+**Next Chapter**: [2.2 Creating Custom Worlds](./chapter-2-2-worlds)
