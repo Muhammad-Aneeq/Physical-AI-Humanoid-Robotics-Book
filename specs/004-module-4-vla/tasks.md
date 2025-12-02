@@ -17,7 +17,7 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 ## Path Conventions
 
-- **Educational Content**: `docs/modules/module-4/` (chapter markdown files)
+- **Educational Content**: `docs/module-4/` (chapter markdown files)
 - **Assets**: `docs/assets/module-4/` (code examples, diagrams, prompt templates, images)
 - **Documentation**: `specs/004-module-4-vla/` (research, data model, contracts)
 - **Tests**: `tests/content/` and `tests/code_examples/`
@@ -28,10 +28,10 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 **Purpose**: Initialize module structure and configuration
 
-- [X] T001 Create module directory structure at docs/modules/module-4/
+- [X] T001 Create module directory structure at docs/module-4/
 - [X] T002 Create assets directory structure at docs/assets/module-4/ with subdirs (code/, prompts/, diagrams/, images/)
 - [X] T003 [P] Create _category_.json for Docusaurus sidebar configuration
-- [X] T004 [P] Create module index file at docs/modules/module-4/index.md
+- [X] T004 [P] Create module index file at docs/module-4/index.md
 - [X] T005 [P] Create test directory structure for Module 4 validation
 
 ---
@@ -42,15 +42,15 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 **⚠️ CRITICAL**: No chapter writing can begin until this phase is complete
 
-- [ ] T006 Create research.md with Whisper API vs local decision, GPT-4 vs Claude comparison, CLIP vs OWL-ViT, wake-word library (Porcupine), state machine frameworks (py_trees)
-- [ ] T007 Create data-model.md with chapter structure, Bloom's taxonomy objectives, dependencies (4.1→4.2-4.3, 4.4, 4.5 requires 4.4, 4.7 requires 4.2+4.4+4.5+4.6)
-- [ ] T008 Create quickstart.md with API keys setup (.env), microphone requirements, GPU optional (for CLIP), both GPT-4 and Claude examples
-- [ ] T009 [P] Create contracts/chapter-4-2-whisper-ros-node.md for speech-to-text ROS 2 integration
-- [ ] T010 [P] Create contracts/chapter-4-4-llm-task-planner.md for LLM-based action planning
-- [ ] T011 [P] Create contracts/chapter-4-5-visual-grounding.md for CLIP-based object detection
-- [ ] T012 [P] Create contracts/chapter-4-7-vla-pipeline.md for end-to-end integration
-- [ ] T013 [P] Create reusable partial at docs/_partials/api-keys-setup.md for OpenAI/Anthropic configuration
-- [ ] T014 [P] Create reusable partial at docs/_partials/llm-safety-guidelines.md for ethical AI usage
+- [X] T006 Create research.md with Whisper API vs local decision, GPT-4 vs Claude comparison, CLIP vs OWL-ViT, wake-word library (Porcupine), state machine frameworks (py_trees)
+- [X] T007 Create data-model.md with chapter structure, Bloom's taxonomy objectives, dependencies (4.1→4.2-4.3, 4.4, 4.5 requires 4.4, 4.7 requires 4.2+4.4+4.5+4.6)
+- [X] T008 Create quickstart.md with API keys setup (.env), microphone requirements, GPU optional (for CLIP), both GPT-4 and Claude examples
+- [X] T009 [P] Create contracts/chapter-4-2-whisper-ros-node.md for speech-to-text ROS 2 integration
+- [X] T010 [P] Create contracts/chapter-4-4-llm-task-planner.md for LLM-based action planning
+- [X] T011 [P] Create contracts/chapter-4-5-visual-grounding.md for CLIP-based object detection
+- [X] T012 [P] Create contracts/chapter-4-7-vla-pipeline.md for end-to-end integration
+- [X] T013 [P] Create reusable partial at docs/_partials/api-keys-setup.md for OpenAI/Anthropic configuration
+- [X] T014 [P] Create reusable partial at docs/_partials/llm-safety-guidelines.md for ethical AI usage
 
 **Checkpoint**: Foundation documents ready - learning journey content implementation can now begin
 
@@ -64,31 +64,31 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 ### Chapter 4.1: Introduction to Vision-Language-Action
 
-- [ ] T015 [LJ1] Write chapter-4-1-introduction.md with VLA paradigm overview, real-world examples (Everyday Robots, Tesla Optimus), module roadmap
-- [ ] T016 [LJ1] Add learning objectives (Remember: define VLA, Understand: explain voice → vision → action flow)
-- [ ] T017 [P] [LJ1] Create vla-pipeline-overview.svg diagram showing Whisper → LLM → CLIP → Robot actions
-- [ ] T018 [LJ1] Add hands-on preview: Complete VLA demo walkthrough (what learners will build)
-- [ ] T019 [LJ1] Add prerequisite review: Module 1 pub/sub, Module 2/3 simulation, API key requirements
-- [ ] T020 [LJ1] Add chapter summary and transition to Chapter 4.2
+- [X] T015 [LJ1] Write chapter-4-1-introduction.md with VLA paradigm overview, real-world examples (Everyday Robots, Tesla Optimus), module roadmap
+- [X] T016 [LJ1] Add learning objectives (Remember: define VLA, Understand: explain voice → vision → action flow)
+- [X] T017 [P] [LJ1] Create vla-pipeline-overview.svg diagram showing Whisper → LLM → CLIP → Robot actions
+- [X] T018 [LJ1] Add hands-on preview: Complete VLA demo walkthrough (what learners will build)
+- [X] T019 [LJ1] Add prerequisite review: Module 1 pub/sub, Module 2/3 simulation, API key requirements
+- [X] T020 [LJ1] Add chapter summary and transition to Chapter 4.2
 
 ### Chapter 4.2: Speech-to-Text with Whisper
 
-- [ ] T021 [LJ1] Write chapter-4-2-speech-to-text.md covering ASR fundamentals, Whisper model, API vs local
-- [ ] T022 [LJ1] Add learning objectives (Apply: transcribe audio with Whisper, Create: ROS 2 voice input node)
-- [ ] T023 [P] [LJ1] Create whisper-architecture.svg diagram showing encoder-decoder Transformer
-- [ ] T024 [LJ1] Add Whisper fundamentals: Why Whisper (99 languages, noise robust), model sizes (tiny, base, small, medium, large)
-- [ ] T025 [LJ1] Add API-based approach: OpenAI Whisper API, cost (~$0.006/minute), latency (~1-2s)
-- [ ] T026 [P] [LJ1] Create code example at docs/assets/module-4/code/chapter-4-2/whisper_api_basic.py
-- [ ] T027 [LJ1] Add guided walkthrough: Record 5-second audio, send to Whisper API, print transcript
-- [ ] T028 [LJ1] Add exercise 1: Test Whisper with different accents (record in various languages), verify accuracy
-- [ ] T029 [LJ1] Add local Whisper approach: `pip install openai-whisper`, GPU acceleration (faster-whisper)
-- [ ] T030 [P] [LJ1] Create code example at docs/assets/module-4/code/chapter-4-2/whisper_local_basic.py
-- [ ] T031 [LJ1] Add exercise 2: Compare API vs local latency and accuracy on same audio clip
-- [ ] T032 [LJ1] Add ROS 2 integration: Create WhisperNode that publishes to `/voice_command` (String message)
-- [ ] T033 [P] [LJ1] Create whisper_ros_node.py at docs/assets/module-4/code/chapter-4-2/
-- [ ] T034 [LJ1] Add guided walkthrough: Run WhisperNode, speak into mic, verify topic with `ros2 topic echo /voice_command`
-- [ ] T035 [LJ1] Add exercise 3: Implement streaming transcription (continuously listen, not single-shot)
-- [ ] T036 [LJ1] Add milestone validation: Voice commands published to ROS 2 with <2s latency
+- [X] T021 [LJ1] Write chapter-4-2-speech-to-text.md covering ASR fundamentals, Whisper model, API vs local
+- [X] T022 [LJ1] Add learning objectives (Apply: transcribe audio with Whisper, Create: ROS 2 voice input node)
+- [X] T023 [P] [LJ1] Create whisper-architecture.svg diagram showing encoder-decoder Transformer
+- [X] T024 [LJ1] Add Whisper fundamentals: Why Whisper (99 languages, noise robust), model sizes (tiny, base, small, medium, large)
+- [X] T025 [LJ1] Add API-based approach: OpenAI Whisper API, cost (~$0.006/minute), latency (~1-2s)
+- [X] T026 [P] [LJ1] Create code example at docs/assets/module-4/code/chapter-4-2/whisper_api_basic.py
+- [X] T027 [LJ1] Add guided walkthrough: Record 5-second audio, send to Whisper API, print transcript
+- [X] T028 [LJ1] Add exercise 1: Test Whisper with different accents (record in various languages), verify accuracy
+- [X] T029 [LJ1] Add local Whisper approach: `pip install openai-whisper`, GPU acceleration (faster-whisper)
+- [X] T030 [P] [LJ1] Create code example at docs/assets/module-4/code/chapter-4-2/whisper_local_basic.py
+- [X] T031 [LJ1] Add exercise 2: Compare API vs local latency and accuracy on same audio clip
+- [X] T032 [LJ1] Add ROS 2 integration: Create WhisperNode that publishes to `/voice_command` (String message)
+- [X] T033 [P] [LJ1] Create whisper_ros_node.py at docs/assets/module-4/code/chapter-4-2/
+- [X] T034 [LJ1] Add guided walkthrough: Run WhisperNode, speak into mic, verify topic with `ros2 topic echo /voice_command`
+- [X] T035 [LJ1] Add exercise 3: Implement streaming transcription (continuously listen, not single-shot)
+- [X] T036 [LJ1] Add milestone validation: Voice commands published to ROS 2 with <2s latency
 
 ### Chapter 4.3: Wake-Word Detection and Audio Processing
 
@@ -294,7 +294,7 @@ description: "Task list for Module 4: Vision-Language-Action (VLA)"
 
 ### Documentation & Index
 
-- [ ] T157 [P] Write comprehensive module index at docs/modules/module-4/index.md
+- [ ] T157 [P] Write comprehensive module index at docs/module-4/index.md
 - [ ] T158 [P] Add API keys warning in index (costs, rate limits, security best practices)
 - [ ] T159 [P] Add module navigation links to all chapter files
 - [ ] T160 [P] Add ethical AI guidelines section (don't execute unsafe commands, privacy considerations)

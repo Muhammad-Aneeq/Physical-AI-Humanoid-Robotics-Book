@@ -39,7 +39,7 @@ This module is organized into **4 learning journeys**, each building a core VLA 
 - Ch 4.2: Speech-to-Text with Whisper
 - Ch 4.3: Wake-Word Detection and Audio Processing
 
-**Milestone**: Voice commands published to `/voice_command` topic with <2s latency
+**Milestone**: Voice commands published to `/voice_command` topic with under 2 seconds latency
 
 ### Learning Journey 2: LLM-Based Task Planning (Priority: P1) 🎯
 **Chapter 4.4** | **Goal**: Natural language to structured action plans
@@ -125,7 +125,7 @@ See [LLM Safety Guidelines](../../_partials/llm-safety-guidelines.md) for detail
 - **Microphone**: USB condenser mic for better accuracy
 - **RAM**: 16GB+ (for local Whisper if desired)
 - **GPU**: NVIDIA RTX 2060+ or equivalent (CLIP runs at 30+ FPS)
-- **Internet**: Stable connection with low latency (<100ms)
+- **Internet**: Stable connection with low latency (&lt;100ms)
 
 ## Getting Help
 
