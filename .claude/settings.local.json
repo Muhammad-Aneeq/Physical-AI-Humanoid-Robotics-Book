@@ -36,7 +36,14 @@
       "Bash(taskkill:*)",
       "Bash(for chapter in chapter-1-4-services.md chapter-1-5-urdf.md chapter-1-6-rviz.md chapter-1-7-mini-project.md)",
       "Bash(do mv \"$chapter\" \"$chapter%.md.mdx\")",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(python write_spec.py:*)",
+      "Bash(if [ -d \"specs/005-rag-chatbot/checklists\" ])",
+      "Bash(then find specs/005-rag-chatbot/checklists -name \"*.md\" -type f)",
+      "Bash(else echo \"NO_CHECKLISTS\")",
+      "Bash(fi)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs"
     ],
     "deny": [],
     "ask": []

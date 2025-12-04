@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import path from 'path';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -71,6 +72,10 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    path.resolve(__dirname, './src/plugins/rag-chatbot/index.js'),
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -79,10 +84,6 @@ const config: Config = {
     },
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
-      logo: {
-        alt: 'Physical AI & Humanoid Robotics',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           type: 'docSidebar',
