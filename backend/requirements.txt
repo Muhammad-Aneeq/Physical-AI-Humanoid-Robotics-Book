@@ -10,7 +10,7 @@ sentence-transformers>=2.7.0,<4.0.0
 torch>=2.5.0,<3.0.0
 
 # Qdrant vector database client
-qdrant-client==1.7.0
+qdrant-client>=1.14.1,<2.0.0
 
 # SQLAlchemy ORM and PostgreSQL driver
 sqlalchemy==2.0.25
