@@ -14,7 +14,7 @@ qdrant-client>=1.14.1,<2.0.0
 
 # SQLAlchemy ORM and PostgreSQL driver
 sqlalchemy>=2.0.25,<3.0.0
-psycopg[binary]>=3.2.2,<4.0.0
+psycopg2-binary>=2.9.9,<3.0.0
 alembic>=1.13.1,<2.0.0
 
 # Pydantic for validation (updated for openai-agents compatibility)
