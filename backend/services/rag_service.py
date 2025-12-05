@@ -9,7 +9,7 @@ import time
 
 from services.qdrant_service import qdrant_service
 from services.openai_service import openai_service
-from services.embedding_service import EmbeddingService
+from services.embedding_service import embedding_service  # Import singleton, not class
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ class RAGService:
         """Initialize RAG service with dependencies."""
         self.qdrant = qdrant_service
         self.openai = openai_service
-        self.embedding = EmbeddingService()
+        self.embedding = embedding_service  # Use singleton with lazy loading
 
     async def embed_query(self, query_text: str) -> List[float]:
         """
