@@ -1,4 +1,12 @@
-## LLM Safety Guidelines
+---
+id: llm-safety-guidelines
+title: LLM Safety Guidelines
+sidebar_label: LLM Safety Guidelines
+unlisted: true
+displayed_sidebar: null
+---
+
+# LLM Safety Guidelines
 
 When building robots that use Large Language Models (LLMs) for decision-making, **safety is paramount**. This section covers ethical AI usage, safety guardrails, and responsible development practices for VLA systems.
 

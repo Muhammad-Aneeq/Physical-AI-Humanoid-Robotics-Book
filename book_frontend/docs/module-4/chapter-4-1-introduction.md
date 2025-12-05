@@ -291,7 +291,7 @@ You'll need **one** of these combinations:
 - Cost: ~$5-10 for full module
 
 :::tip API Keys Setup
-See the [API Keys Setup Guide](../partials/api-keys-setup) for step-by-step instructions on creating accounts, generating keys, and securing them in `.env` files.
+See the [API Keys Setup Guide](../partials/api-keys-setup.md) for step-by-step instructions on creating accounts, generating keys, and securing them in `.env` files.
 :::
 
 ### ✅ Hardware Requirements
@@ -376,7 +376,7 @@ User: "Get the red box."
 Before building VLA systems, it's critical to understand responsible AI development:
 
 :::warning Important: LLM Safety
-Large language models can make mistakes, hallucinate plans, or misinterpret commands. **Always validate LLM outputs** before executing physical actions. See the [LLM Safety Guidelines](../partials/llm-safety-guidelines) for best practices.
+Large language models can make mistakes, hallucinate plans, or misinterpret commands. **Always validate LLM outputs** before executing physical actions. See the [LLM Safety Guidelines](../partials/llm-safety-guidelines.md) for best practices.
 :::
 
 **Key Safety Principles**:

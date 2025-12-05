@@ -88,7 +88,7 @@ This module is organized into **4 learning journeys**, each building a core VLA 
 - **Local Whisper**: Works on CPU but 5-10x slower than API
 - **Open-source LLMs**: Llama 3, Mistral (lower planning quality, requires GPU)
 
-All code examples use `.env` files for API keys—**never hardcode secrets**. See [API Keys Setup](../partials/api-keys-setup) for configuration instructions.
+All code examples use `.env` files for API keys—**never hardcode secrets**. See [API Keys Setup](../partials/api-keys-setup.md) for configuration instructions.
 
 ## Learning Outcomes
 
@@ -111,7 +111,7 @@ As you build VLA systems, remember:
 - **Cost Awareness**: API calls cost money—warn users about rate limits and expenses
 - **Bias Awareness**: LLMs and CLIP models may exhibit biases—validate outputs critically
 
-See [LLM Safety Guidelines](../partials/llm-safety-guidelines) for detailed best practices.
+See [LLM Safety Guidelines](../partials/llm-safety-guidelines.md) for detailed best practices.
 
 ## Hardware Requirements
 

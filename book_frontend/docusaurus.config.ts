@@ -43,8 +43,6 @@ const config: Config = {
         docs: {
           path: './docs',  // Use local docs folder
           sidebarPath: './sidebars.ts',
-          // Exclude partials folder from being rendered as docs
-          exclude: ['**/partials/**'],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:

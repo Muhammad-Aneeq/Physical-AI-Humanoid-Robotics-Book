@@ -1,4 +1,12 @@
-## API Keys Setup
+---
+id: api-keys-setup
+title: API Keys Setup
+sidebar_label: API Keys Setup
+unlisted: true
+displayed_sidebar: null
+---
+
+# API Keys Setup
 
 Module 4 requires API keys for AI services. Follow these steps to set up your environment securely.
 
