@@ -13,12 +13,11 @@ services:
     # Optimized build for PyTorch CPU-only
     buildCommand: pip install --upgrade pip && pip install torch==2.5.0 --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt
 
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    # Extended timeout for model loading on first start
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 300
 
-    # Health check fields (flat, not nested)
+    # Health check - Blueprint v2 only supports healthCheckPath
     healthCheckPath: /
-    healthCheckTimeout: 600  # 10 minutes in seconds
-    healthCheckInterval: 30  # Check every 30 seconds
 
     # Disk for caching models
     disk:
