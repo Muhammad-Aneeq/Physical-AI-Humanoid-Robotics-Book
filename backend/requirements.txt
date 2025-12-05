@@ -6,8 +6,8 @@ uvicorn[standard]==0.27.0
 openai-agents==0.2.9
 
 # Sentence Transformers for local embeddings (BAAI/bge-base-en-v1.5, 768 dims)
-sentence-transformers==2.2.2
-torch==2.1.2
+sentence-transformers>=2.7.0,<4.0.0
+torch>=2.5.0,<3.0.0
 
 # Qdrant vector database client
 qdrant-client==1.7.0
