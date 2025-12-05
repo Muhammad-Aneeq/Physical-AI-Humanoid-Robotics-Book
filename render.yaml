@@ -1,14 +1,12 @@
-# render.yaml - Render Blueprint v2
-version: 2
-
+# render.yaml - Render Blueprint (free tier uses v1)
 services:
   - type: web
     name: rag-chatbot-api
-    runtime: python
+    env: python
     region: oregon
     plan: free
     branch: master
-    rootDir: backend  # Changed from rootDirectory
+    rootDir: backend
 
     # Optimized build for PyTorch CPU-only
     buildCommand: pip install --upgrade pip && pip install torch==2.5.0 --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt
@@ -16,14 +14,8 @@ services:
     # Extended timeout for model loading on first start
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --timeout-keep-alive 300
 
-    # Health check - Blueprint v2 only supports healthCheckPath
+    # Health check
     healthCheckPath: /
-
-    # Disk for caching models
-    disk:
-      name: model-cache
-      mountPath: /opt/render/.cache
-      sizeGB: 1
 
     envVars:
       # OpenAI Configuration
@@ -43,12 +35,6 @@ services:
         value: cpu
       - key: EMBEDDING_BATCH_SIZE
         value: "16"
-
-      # HuggingFace cache
-      - key: HF_HOME
-        value: /opt/render/.cache/huggingface
-      - key: TRANSFORMERS_CACHE
-        value: /opt/render/.cache/huggingface
 
       # Qdrant Configuration
       - key: QDRANT_URL
