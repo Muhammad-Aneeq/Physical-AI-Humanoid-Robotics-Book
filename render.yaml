@@ -12,7 +12,7 @@ services:
     branch: master  # or your deployment branch
     rootDir: backend
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    startCommand: echo "Starting on port $PORT" && uvicorn main:app --host 0.0.0.0 --port $PORT --log-level debug
     healthCheckPath: /api/health
     # Increase timeout for model download/loading on first deployment
     healthCheckTimeout: 300  # 5 minutes
